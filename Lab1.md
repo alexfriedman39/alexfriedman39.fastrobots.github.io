@@ -17,3 +17,8 @@ First, I completed the ECHO function in Arduino IDE. This function can be seen b
 I then called the function in Jupyter, using the code shown below. The command sends the robot "HiHello" and the robot returns "Robot says -> HiHello."
 <p align="center">
 <img width="350" src="photos/Echo_Python_Crop.png">
+
+### Task 2: SEND_THREE_FLOATS Command
+
+As with the ECHO command, in order to implement SEND_THREE_FLOATS, I first had to write the necessary code to perform the desired task in Arduino. This code can be seen below.
+
