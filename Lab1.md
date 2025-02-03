@@ -33,10 +33,15 @@ As with the ECHO command, in order to implement SEND_THREE_FLOATS, I first had t
 <br>
 
 
-I then called SEND_THREE_FLOATS using the Jupyter Notebook code shown in the image below. This prompted the Artemis to output the floats to the Serial Monitor.
+I then called SEND_THREE_FLOATS using the Jupyter Notebook code shown in the image below. 
 
 <p align="center">
 <img width="550" src="photos/Send_three_python_crop.png">
+</p>
+<br>
+
+This prompted the Artemis to output the floats to the Serial Monitor.
+
 <p align="center">
 <img width="550" src="photos/Send_three_ard_sm.png">
 </p>
