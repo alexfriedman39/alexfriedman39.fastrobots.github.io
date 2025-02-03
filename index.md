@@ -6,6 +6,6 @@ Hi! My name is Alex Friedman, and I am a MEng student studying mechanical engine
 
 Below you will find an updated account of the work I have done so far this semester in Fast Robots. 
 
-##Labs
+## Labs
 
-- [Lab 1: Setting Up/Bluetooth](/Lab1)
+- [Lab 1: Setting Up/Bluetooth](/Lab1.md)
