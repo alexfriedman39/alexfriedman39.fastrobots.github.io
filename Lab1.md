@@ -24,5 +24,10 @@ I then called the function in Jupyter, using the code shown below. The command s
 
 As with the ECHO command, in order to implement SEND_THREE_FLOATS, I first had to write the necessary code to perform the desired task in Arduino. This code can be seen below.
 
+<p align="center">
+<img width="550" src="photos/Send_three_ard_fun.png">
+
+
+I then called SEND_THREE_FLOATS using the Jupyter Notebook code shown in the image below. This 
 
 believe that milis was the first to require you to change the variable names up top
