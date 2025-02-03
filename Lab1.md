@@ -14,6 +14,7 @@ First, I completed the ECHO function in Arduino IDE. This function can be seen b
 <p align="center">
 <img width="550" src="photos/Echo_Arduino.png">
 
+
 I then called the function in Jupyter, using the code shown below. The command sends the robot "HiHello" and the robot returns "Robot says -> HiHello."
 <p align="center">
 <img width="350" src="photos/Echo_Python_Crop.png">
