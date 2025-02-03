@@ -12,13 +12,11 @@ The purpose of this lab was to test Bluetooth by learning how to use Jupyter lab
 
 First, I completed the ECHO function in Arduino IDE. This function can be seen below. 
 <p align="center">
-<img width="550" src="photos/Echo_Arduino.png">
-
-\n
+<img width="550" src="photos/Echo_Arduino.png">\
 
 I then called the function in Jupyter, using the code shown below. The command sends the robot "HiHello" and the robot returns "Robot says -> HiHello."
 <p align="center">
-<img width="350" src="photos/Echo_Python_Crop.png">
+<img width="350" src="photos/Echo_Python_Crop.png">\
 
 
 ### Task 2: SEND_THREE_FLOATS Command
