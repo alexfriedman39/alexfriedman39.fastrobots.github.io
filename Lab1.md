@@ -29,8 +29,17 @@ As with the ECHO command, in order to implement SEND_THREE_FLOATS, I first had t
 
 <p align="center">
 <img width="550" src="photos/Send_three_ard_fun.png">
+</p>
+<br>
 
 
-I then called SEND_THREE_FLOATS using the Jupyter Notebook code shown in the image below. This 
+I then called SEND_THREE_FLOATS using the Jupyter Notebook code shown in the image below. This prompted the Artemis to output the floats to the Serial Monitor.
+
+<p align="center">
+<img width="550" src="photos/Send_three_python_crop.png">
+<p align="center">
+<img width="550" src="photos/Send_three_ard_sm.png">
+</p>
+<br>
 
 believe that milis was the first to require you to change the variable names up top
