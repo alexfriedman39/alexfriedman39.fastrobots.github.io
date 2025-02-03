@@ -8,3 +8,6 @@ The purpose of this lab was to become more familiar with programming using Ardui
 
 The purpose of this lab was to test Bluetooth by learning how to use Jupyter lab notebooks in conjunction with the Arduino IDE to communicate with the Artemis board. 
 
+### Task 1: ECHO Command
+
+
