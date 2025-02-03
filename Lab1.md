@@ -51,7 +51,8 @@ This prompted the Artemis to output the floats to the Serial Monitor.
 
 As with the first two tasks, GET_TIME_MILLIS needed to be implemented in Arduino. Unlike before, the GET_TIME_MILLIS did not exist in either Arduino or in Jupyter lab. In order to create the command, it first had to be added to enum CommandTypes in Arduino and cmd_types.py, as seen below. 
 
-<img width="100" src="photos/Enum_arduino.png"> <img width="100" src="photos/Enum_python.png">
+<p align="center">
+<img width="300" src="photos/Enum_arduino.png"> <img width="300" src="photos/Enum_python.png">
 </p>
 <br>
 
