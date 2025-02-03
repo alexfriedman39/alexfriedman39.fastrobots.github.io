@@ -57,3 +57,16 @@ As with the first two tasks, GET_TIME_MILLIS needed to be implemented in Arduino
 <br>
 
 After the command names were updated, I was able to create the GET_TIME_MILLIS in Arduino IDE.
+
+<p align="center">
+<img width="300" src="photos/Millis_arduino.png"> 
+</p>
+<br>
+
+Then, the following python code was implemented in Jupyter Notebook to obtain the time in milliseconds from the Arduino in the format of "T: " followed by 6 digits.
+
+<p align="center">
+<img width="300" src="photos/Millis_python.png"> 
+</p>
+<br>
+
