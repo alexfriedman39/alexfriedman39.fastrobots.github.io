@@ -56,4 +56,4 @@ As with the first two tasks, GET_TIME_MILLIS needed to be implemented in Arduino
 </p>
 <br>
 
-believe that milis was the first to require you to change the variable names up top
+After the command names were updated, I was able to create the GET_TIME_MILLIS in Arduino IDE.
