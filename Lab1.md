@@ -11,6 +11,6 @@ The purpose of this lab was to test Bluetooth by learning how to use Jupyter lab
 ### Task 1: ECHO Command
 
 <p align="center">
-<img width="248" src="photos/Echo_Arduino.png">
+<img width="450" src="photos/Echo_Arduino.png">
 <p align="center">
 <img width="500" src="photos/Echo_Python_Crop.png">
