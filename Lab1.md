@@ -73,3 +73,8 @@ Then, the following python code was implemented in Jupyter Notebook to obtain th
 ### Task 4: Notification Handler
 
 In order to extract time from the string value sent by the Artemis board, I set up a notification handler. The notification handler, shown below, is able to handle three different cases. These cases include different formatting of the timestamp data as well as the addition of temperature data. These three cases pertain to tasks 5, 6, and 7, respectively. Therefore, the notification manager can be used properly for all three tasks. 
+
+<p align="center">
+<img width="500" src="photos/Notif_handler.png"> 
+</p>
+<br>
