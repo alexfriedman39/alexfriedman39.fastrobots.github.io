@@ -213,15 +213,24 @@ The beginning and end of sample time and temperature values after processing by 
 
 In order to investigate effective data rate and overhead for varying byte sizes, I first made a REPLY command in Arduino. This command would return a char array when prompted by the computer as well as its corresponding timestamp. The length of the char array could be changed between trials in order to vary the byte size since one char character is equivalent to one byte. So, for example, toReply[] shown in the code below is 25 bytes. 
 
-ADD IN ARDUINO CODE
+<p align="center">
+<img width="550" src="photos/Data_rate_ar.png">
+</p>
+<br>
 
 I created a loop in Jupyter notebook that would call REPLY 100 times. This made it easier to find the data rate, as I could average over 100 samples. The notification handler was also activated to receive and process the timestamps sent by the Artemis board. The code can be seen below. 
 
-ADD IN JUPYTER CODE
+<p align="center">
+<img width="550" src="photos/Data_rate_py.png">
+</p>
+<br>
 
 An example of the timestamps printed for a 25-byte reply can be seen below.
 
-ADD IN TIMESTAMPS
+<p align="center">
+<img width="550" src="photos/Data_rate_output.png">
+</p>
+<br>
 
 After testing a variety of size replies, I was able to create the following graph that relates reply size to data rate:
 
