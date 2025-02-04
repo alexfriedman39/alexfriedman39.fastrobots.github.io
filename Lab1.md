@@ -4,6 +4,40 @@
 
 The purpose of this lab was to become more familiar with programming using Arduino IDE and the Artemis board. 
 
+### Prelab
+
+ADD SOMETHING HERE
+
+### Configuration
+
+ADD SOMETHING HERE
+
+### Task 1: Hook Artemis Board up to Computer
+
+After updating my Arduino and installing the Sparkfun Appollo3 boards manager I was able to select the correct Board. After downloading the CH340 Driver, I was able to select the correct Port. 
+
+ADD PICTURE OF BOARD AND PORT
+
+### Task 2: Blink
+
+TAKE VIDEO AND UPLOAD
+
+### Task 3: Serial
+
+TAKE VIDEO AND UPLOAD
+
+### Task 4: Temperature Sensor
+
+TAKE VIDEO AND UPLOAD
+
+### Task 5: Microphone
+
+UPLOAD VIDEO
+
+### Additional Tasks for 5000-Level
+
+UPLOAD VIDEO
+
 ## Lab 2A: Bluetooth
 
 The purpose of this lab was to test Bluetooth by learning how to use Jupyter lab notebooks in conjunction with the Arduino IDE to communicate with the Artemis board. 
