@@ -103,9 +103,21 @@ The notification handler was responsible for receiving and processing the time s
 </p>
 <br>
 
+Since approximately 380 time values were transferred from the Artemis board to my computer within 10 seconds, the effective data transfer rate using this method is 38 values per second on average.  
+
 Finally, the code that was called in Jupyter notebook to activate the notification handler and the time loop can be seen below. 
 
 <p align="center">
 <img width="500" src="photos/Time_loop_py.png"> 
 </p>
 <br>
+
+### Task 6: Data Transfer via Array Method
+
+As above in task 5, the purpose of this task is to send timestamps from the Artemis board to my computer. However, to improve efficiency, each time stamp was placed into an array in Arduino. These arrays had to be defined globally, as seen below, to allow them to be accessed outside of the loop function. 
+
+EXPLAIN WHY CHOSE 500 AS ARRAY SIZE (GOT _X_ SECONDS, ENOUGH TO DETERMINE EFFICIENCY WITHOUT WASTING TOO MUCH STORAGE)
+
+ADD GLOBAL ARRAY PIC
+
+Creating these arrays allowed all the values entire array to be sent back at once, instead of one value at a time. 
