@@ -146,3 +146,17 @@ The Jupyter notebook code used to call the commands and activate the notificatio
 The beginning and end of a sample output can be seen below. This method was much more efficient, as 500 timestamps were recorded in only ____ seconds. Therefore, the effective data transfer rate using this method was found to be ___ values per second on average.
 
 ADD SAMPLE OUTPUT PIC
+
+### Task 7: Adding Temperature Readings
+
+It is possible for the Artemis board to record temperature values with their timestamps. In order to do this, I created the GET_TEMP_READINGS command, seen below, which acted similarly to TIME_LOOP_ARR and SEND_TIME_DATA from task 6, except it also recorded temperature values and placed them in their corresponding array. Once all values were recorded, the temperature values were sent back on the same string as their corresponding timestamp. 
+
+ADD ARDUINO COMMAND PIC
+
+The Jupyter notebook code below initialized time and temperature arrays, initialized the notification handler to receive and process the incoming data, and called the GET_TEMP_READINGS command. 
+
+ADD JUPYTER CODE
+
+The beginning and end of sample time and temperature values after processing by the notification handler can be seen below. 
+
+ADD SAMPLE OUTPUT
