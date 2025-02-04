@@ -89,4 +89,6 @@ In order to extract time from the string value sent by the Artemis board, I set 
 
 ### Task 5: Data Transfer via Loop Method
 
-To test the effective data transfer rate of Bluetooth communication between my computer and the Artemis board, 
+To test the effective data transfer rate of Bluetooth communication between my computer and the Artemis board, I created a loop in Arduino that obtained the time in milliseconds and then sent it to Jupyter Lab on my computer. Once called, the loop ran for 10 seconds. The code is shown below. 
+
+The notification handler was responsible for receiving and processing the time sent to the computer by the Artemis board. 
