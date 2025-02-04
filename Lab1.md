@@ -151,12 +151,21 @@ ADD SAMPLE OUTPUT PIC
 
 It is possible for the Artemis board to record temperature values with their timestamps. In order to do this, I created the GET_TEMP_READINGS command, seen below, which acted similarly to TIME_LOOP_ARR and SEND_TIME_DATA from task 6, except it also recorded temperature values and placed them in their corresponding array. Once all values were recorded, the temperature values were sent back on the same string as their corresponding timestamp. 
 
-ADD ARDUINO COMMAND PIC
+<p align="center">
+<img width="400" src="photos/Temp_ar.png">
+</p>
+<br>
 
 The Jupyter notebook code below initialized time and temperature arrays, initialized the notification handler to receive and process the incoming data, and called the GET_TEMP_READINGS command. 
 
-ADD JUPYTER CODE
+<p align="center">
+<img width="550" src="photos/Temp_py.png">
+</p>
+<br>
 
 The beginning and end of sample time and temperature values after processing by the notification handler can be seen below. 
 
-ADD SAMPLE OUTPUT
+<p align="center">
+<img width="300" src="photos/Sample_temp_beg.png"> <img width="300" src="photos/Sample_temp_end.png">
+</p>
+<br>
