@@ -39,12 +39,7 @@ UPLOAD VIDEO
 
 ### Additional Tasks for 5000-Level
 
-<iframe width="315" height="560"
-src="https://youtube.com/embed/bLosVyVbwyg?feature=share"
-title="YouTube video player"
-frameborder="0"
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-allowfullscreen></iframe>
+<iframe width="315" height="560" src="https://youtube.com/embed/bLosVyVbwyg?feature=share" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## Lab 2A: Bluetooth
 
