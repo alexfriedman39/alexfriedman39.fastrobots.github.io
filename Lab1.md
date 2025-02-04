@@ -91,6 +91,21 @@ In order to extract time from the string value sent by the Artemis board, I set 
 
 To test the effective data transfer rate of Bluetooth communication between my computer and the Artemis board, I created a loop in Arduino that obtained the time in milliseconds and then sent it to Jupyter Lab on my computer. Once called, the loop ran for 10 seconds. In addition to recording the time, I kept track of how many times the loop ran during the 10 seconds. This "count" was sent to computer along with the time in milliseconds to more easily calculate the average effective data transfer rate over 10 seconds. The code is shown below. 
 
+<p align="center">
+<img width="500" src="photos/Time_loop_ard.png"> 
+</p>
+<br>
+
 The notification handler was responsible for receiving and processing the time sent to the computer by the Artemis board. It separated time and count values, placing time values into an array. In order to better visualize the data being sent from the Artemis board, the notification handler printed both count and time in milliseconds. The beginning and end of a sample output can be seen below. 
 
+<p align="center">
+<img width="500" src="photos/Time_loop_sample_beg.png"> <img width="300" src="photos/Time_loop_sample_end.png">
+</p>
+<br>
+
 Finally, the code that was called in Jupyter notebook to activate the notification handler and the time loop can be seen below. 
+
+<p align="center">
+<img width="500" src="photos/Time_loop_py.png"> 
+</p>
+<br>
