@@ -19,21 +19,27 @@ After updating my Arduino and installing the Sparkfun Appollo3 boards manager I 
 
 ### Task 2: Blink
 
-TAKE VIDEO AND UPLOAD
+As seen in the video linked below, an LED on the the Artemis board can be programmed to blink at constant intervals. 
+
+[Watch Video](https://youtu.be/aAB5XjlZ9aE)
 
 ### Task 3: Serial
 
-TAKE VIDEO AND UPLOAD
+The video linked below shows the Serial Monitor output of Example4_Serial. Running this script was essential, as the Serial Monitor will be a very helpful tool throughout the course. I had to change the baud rate to 115200 in order to make sure I was seeing the correct output.
+
+[Watch Video](https://youtu.be/44PWhzfScAk)
 
 ### Task 4: Temperature Sensor
 
-TAKE VIDEO AND UPLOAD
+The video below shows the output of Example2_analogRead in the Serial monitor. Focusing in on the temperature measurements, the values outputted by the sensor increase slightly when I enclose my hand around the Artemis board. The temperature increases from around 33100 to 33200. 
+
+[Watch Video](https://youtu.be/mEkSA0r6X3E)
 
 ### Task 5: Microphone
 
 As seen in the video linked below, the Artemis board microphone responds to the sound of my voice. The frequency is zero when no noise is detected. Then, it increases to around 500 Hz as I begin to speak. Then, when I whistle, the frequency increases significantly to 2000 Hz. When I stop whistling, the frequency drops back to zero. 
 
-UPLOAD VIDEO
+[Watch Video](https://youtu.be/gotyyYR64GQ)
 
 ### Additional Tasks for 5000-Level
 
@@ -265,6 +271,8 @@ As demonstrated by these results, shorter packets do appear to introduce more ov
 
 #### 2. Reliability
 
+When data is sent from the Artemis at a higher baud rate, the likelihood that the computer may miss something is higher. This is because there is a trade off between speed and accuracy. If the baud rate increases, some data may be accidentally skipped over.
+
 ## Discussion
 
-ADD SOMETHING ANYTHING
+My biggest challenge for this lab was learning the nuances of the interactions between all the softwares we will be using in this class. As someone who had never used the terminal of their computer before, the learning curve has been pretty large over the last week. However, after completing this lab, I am now feeling much more comfortable with the format of Arduino, Jupyter notebook, and Github.
