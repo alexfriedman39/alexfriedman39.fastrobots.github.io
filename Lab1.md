@@ -16,7 +16,10 @@ ADD SOMETHING HERE
 
 After updating my Arduino and installing the Sparkfun Appollo3 boards manager I was able to select the correct Board. After downloading the CH340 Driver, I was able to select the correct Port. 
 
-ADD PICTURE OF BOARD AND PORT
+<p align="center">
+<img width="400" src="photos/Board_port.png">
+</p>
+<br>
 
 ### Task 2: Blink
 
