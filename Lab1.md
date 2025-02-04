@@ -122,15 +122,23 @@ ADD GLOBAL ARRAY PIC
 
 Creating these arrays allowed all the values entire array to be sent back at once, instead of one value at a time. I created a command, TIME_LOOP_ARR, in Arduino to add the timestamp values to the timestamp array. I recorded the time values in microseconds instead of milliseconds because I wanted greater accuracy when calculating the rate of data transfer for this method. 
 
-ADD LOOP FUNCTION PIC
+<p align="center">
+<img width="550" src="photos/time_arr_ard.png">
+</p>
+<br>
 
 Then, I created the SEND_TIME_DATA command which looped over the timestamp array to send the timestamps to the computer. 
 
-ADD SEND COMMAND PIC
-
+<p align="center">
+<img width="550" src="photos/send_time_arr.png">
+</p>
+<br>
 The Jupyter notebook code used to call the commands and activate the notification handler can be seen below. The loop command was called first to generate the array, and then the notification handler was activated in order to properly receive and process the timestamps sent to the computer. 
 
-ADD JUPYTER PIC
+<p align="center">
+<img width="550" src="photos/send_time_py.png">
+</p>
+<br>
 
 The beginning and end of a sample output can be seen below. This method was much more efficient, as 500 timestamps were recorded in only ____ seconds. Therefore, the effective data transfer rate using this method was found to be ___ values per second on average.
 
