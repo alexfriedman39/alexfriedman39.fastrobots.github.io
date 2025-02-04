@@ -78,3 +78,7 @@ In order to extract time from the string value sent by the Artemis board, I set 
 <img width="500" src="photos/Notif_handler.png"> 
 </p>
 <br>
+
+### Task 5: Data Transfer via Loop Method
+
+To test the effective data transfer rate of Bluetooth communication between my computer and the Artemis board, 
