@@ -60,7 +60,7 @@ This prompted the Artemis to output the floats to the Serial Monitor.
 As with the first two tasks, GET_TIME_MILLIS needed to be implemented in Arduino. Unlike before, the GET_TIME_MILLIS did not exist in either Arduino or in Jupyter lab. In order to create the command, it first had to be added to enum CommandTypes in Arduino and cmd_types.py, as seen below. 
 
 <p align="center">
-<img width="500" src="photos/Enum_arduino.png"> <img width="300" src="photos/Enum_python.png">
+<img width="300" src="photos/Enum_arduino.png"> <img width="300" src="photos/Enum_python.png">
 </p>
 <br>
 
@@ -99,7 +99,7 @@ To test the effective data transfer rate of Bluetooth communication between my c
 The notification handler was responsible for receiving and processing the time sent to the computer by the Artemis board. It separated time and count values, placing time values into an array. In order to better visualize the data being sent from the Artemis board, the notification handler printed both count and time in milliseconds. The beginning and end of a sample output can be seen below. 
 
 <p align="center">
-<img width="500" src="photos/Time_loop_sample_beg.png"> <img width="300" src="photos/Time_loop_sample_end.png">
+<img width="300" src="photos/Time_loop_sample_beg.png"> <img width="300" src="photos/Time_loop_sample_end.png">
 </p>
 <br>
 
