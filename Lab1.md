@@ -206,3 +206,30 @@ The beginning and end of sample time and temperature values after processing by 
 <img width="300" src="photos/Sample_temp_beg.png"> <img width="300" src="photos/Sample_temp_end.png">
 </p>
 <br>
+
+### Additional Tasks for 5000-Level
+
+#### 1. Effective Data Rate and Overhead
+
+In order to investigate effective data rate and overhead for varying byte sizes, I first made a REPLY command in Arduino. This command would return a char array when prompted by the computer as well as its corresponding timestamp. The length of the char array could be changed between trials in order to vary the byte size since one char character is equivalent to one byte. So, for example, toReply[] shown in the code below is 25 bytes. 
+
+ADD IN ARDUINO CODE
+
+I created a loop in Jupyter notebook that would call REPLY 100 times. This made it easier to find the data rate, as I could average over 100 samples. The notification handler was also activated to receive and process the timestamps sent by the Artemis board. The code can be seen below. 
+
+ADD IN JUPYTER CODE
+
+An example of the timestamps printed for a 25-byte reply can be seen below.
+
+ADD IN TIMESTAMPS
+
+After testing a variety of size replies, I was able to create the following graph that relates reply size to data rate:
+
+<p align="center">
+<img width="550" src="photos/Data_rate_chart.png">
+</p>
+<br>
+
+As demonstrated by these results, shorter packets do appear to introduce more overhead than larger packages. Howevever, there seems to be a limit to this trend. The data rate increases with reply size up until around 100 bytes. The data rate levels off between 100 and 120, decreasing very slightly. This indicates that although larger replies can be used to reduce overhead, there is a limit to the ideal reply size.
+
+#### 2. Reliability
