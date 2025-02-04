@@ -168,9 +168,7 @@ Finally, the code that was called in Jupyter notebook to activate the notificati
 
 ### Task 6: Data Transfer via Array Method
 
-As above in task 5, the purpose of this task is to send timestamps from the Artemis board to my computer. However, to improve efficiency, each time stamp was placed into an array in Arduino. This array, along with the temperature array used in task 7, had to be defined globally to allow them to be accessed outside of the loop command. 
-
-EXPLAIN WHY CHOSE 500 AS ARRAY SIZE (GOT _X_ SECONDS, ENOUGH TO DETERMINE EFFICIENCY WITHOUT WASTING TOO MUCH STORAGE)
+As above in task 5, the purpose of this task is to send timestamps from the Artemis board to my computer. However, to improve efficiency, each time stamp was placed into an array in Arduino. This array, along with the temperature array used in task 7, had to be defined globally to allow them to be accessed outside of the loop command. I decided to give the arrays a length of 500 because I needed them to be large enough to see a difference in timestamps to determine efficiency. However, they could not be too large, or that would be a waste of storage.
 
 <p align="center">
 <img width="550" src="photos/Global_arr.png">
@@ -197,7 +195,7 @@ The Jupyter notebook code used to call the commands and activate the notificatio
 </p>
 <br>
 
-The beginning and end of a sample output can be seen below. This method was much more efficient, as 500 timestamps were recorded in only ____ seconds. Therefore, the effective data transfer rate using this method was found to be ___ values per second on average.
+The beginning and end of a sample output can be seen below. This method was much more efficient, as 500 timestamps were recorded in only 15142 microseconds or 0.0151 seconds. Therefore, the effective data transfer rate using this method was found to be 33,000 values per second on average.
 
 ADD SAMPLE OUTPUT PIC
 
