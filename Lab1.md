@@ -52,21 +52,24 @@ This prompted the Artemis to output the floats to the Serial Monitor.
 As with the first two tasks, GET_TIME_MILLIS needed to be implemented in Arduino. Unlike before, the GET_TIME_MILLIS did not exist in either Arduino or in Jupyter lab. In order to create the command, it first had to be added to enum CommandTypes in Arduino and cmd_types.py, as seen below. 
 
 <p align="center">
-<img width="300" src="photos/Enum_arduino.png"> <img width="300" src="photos/Enum_python.png">
+<img width="500" src="photos/Enum_arduino.png"> <img width="300" src="photos/Enum_python.png">
 </p>
 <br>
 
 After the command names were updated, I was able to create the GET_TIME_MILLIS in Arduino IDE.
 
 <p align="center">
-<img width="300" src="photos/Millis_arduino.png"> 
+<img width="500" src="photos/Millis_arduino.png"> 
 </p>
 <br>
 
 Then, the following python code was implemented in Jupyter Notebook to obtain the time in milliseconds from the Arduino in the format of "T: " followed by 6 digits.
 
 <p align="center">
-<img width="300" src="photos/Millis_python.png"> 
+<img width="500" src="photos/Millis_python.png"> 
 </p>
 <br>
 
+### Task 4: Notification Handler
+
+In order to extract time from the string value sent by the Artemis board, I set up a notification handler. The notification handler, shown below, is able to handle three different cases. These cases include different formatting of the timestamp data as well as the addition of temperature data. These three cases pertain to tasks 5, 6, and 7, respectively. Therefore, the notification manager can be used properly for all three tasks. 
