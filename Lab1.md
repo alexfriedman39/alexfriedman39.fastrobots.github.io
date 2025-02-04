@@ -41,6 +41,14 @@ UPLOAD VIDEO
 
 [Watch Video](https://youtu.be/bLosVyVbwyg)
 
+<iframe width="315" height="560"
+        src="https://www.youtube.com/embed/bLosVyVbwyg"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+</iframe>
+
 ## Lab 2A: Bluetooth
 
 The purpose of this lab was to test Bluetooth by learning how to use Jupyter lab notebooks in conjunction with the Arduino IDE to communicate with the Artemis board. 
