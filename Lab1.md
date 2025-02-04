@@ -18,13 +18,13 @@ ADD SOMETHING HERE
 
 ### Task 1: ECHO Command
 
-First, I completed the ECHO function in Arduino IDE. This function can be seen below. 
+First, I completed the ECHO command in Arduino IDE. This command can be seen below. 
 <p align="center">
 <img width="550" src="photos/Echo_Arduino.png">
 </p>
 <br>
 
-I then called the function in Jupyter, using the code shown below. The command sends the robot "HiHello" and the robot returns "Robot says -> HiHello."
+I then called the command in Jupyter, using the code shown below. The command sends the robot "HiHello" and the robot returns "Robot says -> HiHello."
 <p align="center">
 <img width="350" src="photos/Echo_Python_Crop.png">
 </p>
@@ -57,7 +57,7 @@ This prompted the Artemis to output the floats to the Serial Monitor.
 
 ### Task 3: GET_TIME_MILLIS
 
-As with the first two tasks, GET_TIME_MILLIS needed to be implemented in Arduino. Unlike before, the GET_TIME_MILLIS did not exist in either Arduino or in Jupyter lab. In order to create the command, it first had to be added to enum CommandTypes in Arduino and cmd_types.py, as seen below. 
+As with the first two tasks, GET_TIME_MILLIS needed to be implemented in Arduino. Unlike before, the GET_TIME_MILLIS did not exist in either Arduino or in Jupyter lab. In order to create the command, it first had to be added to enum CommandTypes in Arduino and cmd_types.py, as seen below. I repeated this process when creating commands in Arduino for tasks 4-7.
 
 <p align="center">
 <img width="300" src="photos/Enum_arduino.png"> <img width="300" src="photos/Enum_python.png">
@@ -114,10 +114,24 @@ Finally, the code that was called in Jupyter notebook to activate the notificati
 
 ### Task 6: Data Transfer via Array Method
 
-As above in task 5, the purpose of this task is to send timestamps from the Artemis board to my computer. However, to improve efficiency, each time stamp was placed into an array in Arduino. These arrays had to be defined globally, as seen below, to allow them to be accessed outside of the loop function. 
+As above in task 5, the purpose of this task is to send timestamps from the Artemis board to my computer. However, to improve efficiency, each time stamp was placed into an array in Arduino. This array, along with the temperature array used in task 7, had to be defined globally to allow them to be accessed outside of the loop command. 
 
 EXPLAIN WHY CHOSE 500 AS ARRAY SIZE (GOT _X_ SECONDS, ENOUGH TO DETERMINE EFFICIENCY WITHOUT WASTING TOO MUCH STORAGE)
 
 ADD GLOBAL ARRAY PIC
 
-Creating these arrays allowed all the values entire array to be sent back at once, instead of one value at a time. 
+Creating these arrays allowed all the values entire array to be sent back at once, instead of one value at a time. I created a command, TIME_LOOP_ARR, in Arduino to add the timestamp values to the timestamp array. I recorded the time values in microseconds instead of milliseconds because I wanted greater accuracy when calculating the rate of data transfer for this method. 
+
+ADD LOOP FUNCTION PIC
+
+Then, I created the SEND_TIME_DATA command which looped over the timestamp array to send the timestamps to the computer. 
+
+ADD SEND COMMAND PIC
+
+The Jupyter notebook code used to call the commands and activate the notification handler can be seen below. The loop command was called first to generate the array, and then the notification handler was activated in order to properly receive and process the timestamps sent to the computer. 
+
+ADD JUPYTER PIC
+
+The beginning and end of a sample output can be seen below. This method was much more efficient, as 500 timestamps were recorded in only ____ seconds. Therefore, the effective data transfer rate using this method was found to be ___ values per second on average.
+
+ADD SAMPLE OUTPUT PIC
