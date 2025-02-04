@@ -118,7 +118,10 @@ As above in task 5, the purpose of this task is to send timestamps from the Arte
 
 EXPLAIN WHY CHOSE 500 AS ARRAY SIZE (GOT _X_ SECONDS, ENOUGH TO DETERMINE EFFICIENCY WITHOUT WASTING TOO MUCH STORAGE)
 
-ADD GLOBAL ARRAY PIC
+<p align="center">
+<img width="550" src="photos/Global_arr.png">
+</p>
+<br>
 
 Creating these arrays allowed all the values entire array to be sent back at once, instead of one value at a time. I created a command, TIME_LOOP_ARR, in Arduino to add the timestamp values to the timestamp array. I recorded the time values in microseconds instead of milliseconds because I wanted greater accuracy when calculating the rate of data transfer for this method. 
 
@@ -136,7 +139,7 @@ Then, I created the SEND_TIME_DATA command which looped over the timestamp array
 The Jupyter notebook code used to call the commands and activate the notification handler can be seen below. The loop command was called first to generate the array, and then the notification handler was activated in order to properly receive and process the timestamps sent to the computer. 
 
 <p align="center">
-<img width="550" src="photos/send_time_py.png">
+<img width="550" src="photos/send_arr_py.png">
 </p>
 <br>
 
