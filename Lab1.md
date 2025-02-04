@@ -178,7 +178,7 @@ As above in task 5, the purpose of this task is to send timestamps from the Arte
 Creating these arrays allowed all the values entire array to be sent back at once, instead of one value at a time. I created a command, TIME_LOOP_ARR, in Arduino to add the timestamp values to the timestamp array. I recorded the time values in microseconds instead of milliseconds because I wanted greater accuracy when calculating the rate of data transfer for this method. 
 
 <p align="center">
-<img width="550" src="photos/time_arr_ard.png">
+<img width="550" src="photos/t6_ard.png">
 </p>
 <br>
 
@@ -197,7 +197,10 @@ The Jupyter notebook code used to call the commands and activate the notificatio
 
 The beginning and end of a sample output can be seen below. This method was much more efficient, as 500 timestamps were recorded in only 15142 microseconds or 0.0151 seconds. Therefore, the effective data transfer rate using this method was found to be 33,000 values per second on average.
 
-ADD SAMPLE OUTPUT PIC
+<p align="center">
+<img width="300" src="photos/t6_beg.png"> <img width="300" src="photos/t6_end.png">
+</p>
+<br>
 
 ### Task 7: Adding Temperature Readings
 
