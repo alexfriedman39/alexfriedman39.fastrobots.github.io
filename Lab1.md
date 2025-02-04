@@ -2,19 +2,15 @@
 
 ## Lab 1A: The Artemis Board
 
-The purpose of this lab was to become more familiar with programming using Arduino IDE and the Artemis board. 
+The purpose of this lab was to set up and become more familiar with Arduino IDE and the Artemis board. The Sparkfun Artemis nano will be used throughout the whole semester, so it is important that it is compatible with my computer and I understand how to use it. 
 
 ### Prelab
 
-ADD SOMETHING HERE
-
-### Configuration
-
-ADD SOMETHING HERE
+Before beginning the lab, I installed ArduinoIDE and Sparkfun Apollo3 boards manager onto my computer. 
 
 ### Task 1: Hook Artemis Board up to Computer
 
-After updating my Arduino and installing the Sparkfun Appollo3 boards manager I was able to select the correct Board. After downloading the CH340 Driver, I was able to select the correct Port. 
+After updating my Arduino and installing the Sparkfun Appollo3 boards manager I was able to select the correct Board. I had to download the CH340 Driver, but once I did I was able to select the correct Port. 
 
 <p align="center">
 <img width="400" src="photos/Board_port.png">
@@ -35,19 +31,17 @@ TAKE VIDEO AND UPLOAD
 
 ### Task 5: Microphone
 
+As seen in the video linked below, the Artemis board microphone responds to the sound of my voice. The frequency is zero when no noise is detected. Then, it increases to around 500 Hz as I begin to speak. Then, when I whistle, the frequency increases significantly to 2000 Hz. When I stop whistling, the frequency drops back to zero. 
+
 UPLOAD VIDEO
 
 ### Additional Tasks for 5000-Level
 
-[Watch Video](https://youtu.be/bLosVyVbwyg)
+#### 1. Blink when you hear "C"
 
-<iframe width="315" height="560"
-        src="https://www.youtube.com/embed/bLosVyVbwyg"
-        title="YouTube video player"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen>
-</iframe>
+The goal of this task was to make the Artemis board blink when it heard the note "C" played. First, using the MicrophoneOutput script, I found that the frequency at which the board detected a "C4" note was 263 Hz. Using this information, I was able to combine the MicrophoneOutput and Blink scripts such that when the Artemis detected a frequency greater 260 and less than 265 the LED would turn on. When it no longer heard sound in this frequency, it turned off. See the video below for a demonstration. 
+
+[Watch Video](https://youtu.be/bLosVyVbwyg)
 
 ## Lab 2A: Bluetooth
 
@@ -55,11 +49,20 @@ The purpose of this lab was to test Bluetooth by learning how to use Jupyter lab
 
 ### Prelab
 
-ADD SOMETHING HERE
+Before beginning the lab, I read over the BLE summary. I then reinstalled Python 3 because I had version 3.8, and I needed at least 3.10. I created a project directory, which is where I will keep all of my files for this course. Using the terminal, I then created a virtual environment within this project directory. Once this environment was activated, I installed the necessary packages. Next, I downloaded the codebase into my project directory. Using the activated virtual environment, I opened Jupyter notebook and read through the codebase. To get the MAC address of the Artemis, I burned ble_arduino.ino onto the Artemis and changed the baud rate to 115200 bps. 
+
+ADD MAC ADDRESS PHOTO
+
+Finally, I read through the Bluetooth Library Limitations and the Processing Commands.
 
 ### Configuration
 
-ADD SOMETHING HERE
+Using the MAC address found during the prelab, I updated the MAC address on the computer in connections.yaml. Then, using Juypter notebook, I was able to generate a new UUID. 
+
+ADD IN UUID PHOTO
+
+I used this generated UUID to replace the UUIDs in both ble_arduino.ino and connections.yaml. I also verified that the enum CommandTypes in Arduino were the same as the defined types in cmd_types.py. Finally, I was able to reupload ble_arduino.ino to the Artemis to begin working on the tasks.
+
 
 ### Task 1: ECHO Command
 
@@ -215,6 +218,10 @@ The beginning and end of sample time and temperature values after processing by 
 </p>
 <br>
 
+### 8: Discuss Difference between Methods
+
+DISCUSS
+
 ### Additional Tasks for 5000-Level
 
 #### 1. Effective Data Rate and Overhead
@@ -250,3 +257,7 @@ After testing a variety of size replies, I was able to create the following grap
 As demonstrated by these results, shorter packets do appear to introduce more overhead than larger packages. Howevever, there seems to be a limit to this trend. The data rate increases with reply size up until around 100 bytes. The data rate levels off between 100 and 120, decreasing very slightly. This indicates that although larger replies can be used to reduce overhead, there is a limit to the ideal reply size.
 
 #### 2. Reliability
+
+## Discussion
+
+ADD SOMETHING ANYTHING
