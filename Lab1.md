@@ -51,7 +51,10 @@ The purpose of this lab was to test Bluetooth by learning how to use Jupyter lab
 
 Before beginning the lab, I read over the BLE summary. I then reinstalled Python 3 because I had version 3.8, and I needed at least 3.10. I created a project directory, which is where I will keep all of my files for this course. Using the terminal, I then created a virtual environment within this project directory. Once this environment was activated, I installed the necessary packages. Next, I downloaded the codebase into my project directory. Using the activated virtual environment, I opened Jupyter notebook and read through the codebase. To get the MAC address of the Artemis, I burned ble_arduino.ino onto the Artemis and changed the baud rate to 115200 bps. 
 
-ADD MAC ADDRESS PHOTO
+<p align="center">
+<img width="400" src="photos/MAC_Address.png">
+</p>
+<br>
 
 Finally, I read through the Bluetooth Library Limitations and the Processing Commands.
 
@@ -59,7 +62,10 @@ Finally, I read through the Bluetooth Library Limitations and the Processing Com
 
 Using the MAC address found during the prelab, I updated the MAC address on the computer in connections.yaml. Then, using Juypter notebook, I was able to generate a new UUID. 
 
-ADD IN UUID PHOTO
+<p align="center">
+<img width="400" src="photos/UUID_photo.png">
+</p>
+<br>
 
 I used this generated UUID to replace the UUIDs in both ble_arduino.ino and connections.yaml. I also verified that the enum CommandTypes in Arduino were the same as the defined types in cmd_types.py. Finally, I was able to reupload ble_arduino.ino to the Artemis to begin working on the tasks.
 
