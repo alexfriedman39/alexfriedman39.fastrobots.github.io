@@ -83,12 +83,14 @@ Then, the following python code was implemented in Jupyter Notebook to obtain th
 In order to extract time from the string value sent by the Artemis board, I set up a notification handler. The notification handler, shown below, is able to handle three different cases. These cases include different formatting of the timestamp data as well as the addition of temperature data. These three cases pertain to tasks 5, 6, and 7, respectively. Therefore, the notification manager can be used properly for all three tasks. 
 
 <p align="center">
-<img width="500" src="photos/Notif_handler.png"> 
+<img width="500" src="photos/Notif_hand_edited.png"> 
 </p>
 <br>
 
 ### Task 5: Data Transfer via Loop Method
 
-To test the effective data transfer rate of Bluetooth communication between my computer and the Artemis board, I created a loop in Arduino that obtained the time in milliseconds and then sent it to Jupyter Lab on my computer. Once called, the loop ran for 10 seconds. The code is shown below. 
+To test the effective data transfer rate of Bluetooth communication between my computer and the Artemis board, I created a loop in Arduino that obtained the time in milliseconds and then sent it to Jupyter Lab on my computer. Once called, the loop ran for 10 seconds. In addition to recording the time, I kept track of how many times the loop ran during the 10 seconds. This "count" was sent to computer along with the time in milliseconds to more easily calculate the average effective data transfer rate over 10 seconds. The code is shown below. 
 
-The notification handler was responsible for receiving and processing the time sent to the computer by the Artemis board. 
+The notification handler was responsible for receiving and processing the time sent to the computer by the Artemis board. It separated time and count values, placing time values into an array. In order to better visualize the data being sent from the Artemis board, the notification handler printed both count and time in milliseconds. The beginning and end of a sample output can be seen below. 
+
+Finally, the code that was called in Jupyter notebook to activate the notification handler and the time loop can be seen below. 
