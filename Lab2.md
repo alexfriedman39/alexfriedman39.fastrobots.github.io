@@ -10,7 +10,10 @@ In order to interact with the IMU, I installed the “SparkFun 9DOF IMU Breakout
 
 BUT WHAT DOES ADO_VAL REPRESENT??
 
+<p align="center">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/yLPr0NABWfo?si=_Kv3WqxDgtZNJuPX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</p>
+<br>
 
 NEED TO MAKE IT BLINK
 
