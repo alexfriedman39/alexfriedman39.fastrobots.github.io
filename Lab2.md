@@ -5,7 +5,7 @@
 First, I connected the IMU to the Artemis board, as shown below, using QWIIC connectors. 
 
 <p align="center">
-<img width="400" src="photos/Lab2/Artemis_IMU_conected.png">
+<img width="400" src="photos/Lab2/Artemis_IMU_connected.png">
 </p>
 <br>
 
