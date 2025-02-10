@@ -13,7 +13,7 @@ Before beginning the lab, I installed ArduinoIDE and Sparkfun Apollo3 boards man
 After updating my Arduino and installing the Sparkfun Appollo3 boards manager I was able to select the correct Board. I had to download the CH340 Driver, but once I did I was able to select the correct Port. 
 
 <p align="center">
-<img width="400" src="photos/Board_port.png">
+<img width="400" src="photos/Lab1/Board_port.png">
 </p>
 <br>
 
