@@ -15,6 +15,8 @@ BUT WHAT DOES ADO_VAL REPRESENT??
 </p>
 <br>
 
+EXPLAIN WHAT IS HAPPENING AS THE IMU IS FLIPPED/ROTATED -> should i add pics?
+
 NEED TO MAKE IT BLINK
 
 ## Task 2: Accelerometer
