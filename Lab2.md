@@ -4,7 +4,10 @@
 
 First, I connected the IMU to the Artemis board, as shown below, using QWIIC connectors. 
 
-ADD PHOTO OF IMU AND ARTEMIS CONNECTION
+<p align="center">
+<img width="400" src="photos/Lab2/Artemis_IMU_conected.png">
+</p>
+<br>
 
 In order to interact with the IMU, I installed the “SparkFun 9DOF IMU Breakout_ICM 20948_Arduino Library.” After the library was installed, I ran the Example1_Basics file from the library to get the output shown in the video below. In the script, I kept AD0_VAL defined as 1, because the AD0 pin on the IMU is not connected to the ADR (address) based off the Sparkfun schematic provided. 
 
