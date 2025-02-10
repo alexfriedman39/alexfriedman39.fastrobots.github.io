@@ -9,3 +9,4 @@ Below you will find an updated account of the work I have done so far this semes
 ## Labs
 
 - [Lab 1: Artemis & Bluetooth](/Lab1.md)
+- [Lab 2: IMU](/Lab2.md)
