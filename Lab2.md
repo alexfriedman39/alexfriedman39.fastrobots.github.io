@@ -16,9 +16,8 @@ In order to interact with the IMU, I installed the “SparkFun 9DOF IMU Breakout
 </p>
 <br>
 
-EXPLAIN WHAT IS HAPPENING AS THE IMU IS FLIPPED/ROTATED -> should i add pics?
+As seen in the video above, the accelerometer and gyroscope values are changing as the IMU is being rotated about its 3 axes. Later in this lab I will further explain the behavior that is occurring, especially as I analyze the accelerometer's pitch and roll values in Task 2. 
 
-NEED TO MAKE IT BLINK
 
 ## Task 2: Accelerometer
 
