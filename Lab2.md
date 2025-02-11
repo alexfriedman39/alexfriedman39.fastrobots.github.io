@@ -70,17 +70,54 @@ I first implemented the lowpass filter in Jupyter lab, seen below. I later added
 
 ADD LOWPASS FILTER CODE
 
+The lowpass filter was applied to the same tabletop vibration data that I used to determine the frequency cutoff. The results are shown below. The lowpass filter successfully reduced the disturbance amplitude by approximately half for both the pitch and roll data. 
 
+ADD LOWPASS ON TABLETOP PICS
 
+In addition, I tested the lowpass filter on accelerometer output collected without a disturbance. The IMU was rotated from side to side in order to generate approximately sinusoidal outputs. The results are shown below.
 
+ADD LOWPASS SINUSOIDAL GRAPHS
 
-
-
+Although there was no large disturbance affecting the accelerometer in this case, the value of the lowpass filter is still evident. It helps to reduce noise, increasing the accuracy of the data.
 
 ## Task 3: Gyroscope
 
+Using the equations from class, I was able to calculate pitch, roll, and yaw from the gyroscope data. I implemented the equations in Arduino using the code shown below. 
+
+ADD IN GYRO CODE
+
+I initially tested the gyroscope when it was sitting on my desk. The IMU was at a slight angle, which likely caused the continual increase in values shown in the left graph below. To test if sampling frequency would affect the gyroscope data, I removed the 20 milisecond delay I had in the gyroscope function. This increased sampling rate tenfold, and slightly improved the gyroscope output, as seen in the right graph below. The angle values are slightly more realistic when the sampling rate is increased, likely because a decrease in overall time prevents them from increasing too much. Note that the second time the gyroscope data was collected, the IMU was sitting at a different angle, which is why the roll angle increases rather than decreasing. 
+
+ADD IN INITIAL GYRO GRAPHS
+
+Since the accelerometer is more accurate than the gyroscope, but the gyroscope is less noisy than the accelerometer, it is a good idea to combine both to get the best output. This can be done using a complementary filter, the equation for which was given in lecture. I implemented the filter in Arduino, using the function shown below. 
+
+ADD IN COMP CODE
+
+I generated the graphs below to compare the gyroscope and accelerometer outputs to the output from the complementary filter. The data used in the top graphs was collected when the IMU was stationary, and the data in the bottom graphs was collected during rotation of the IMU. Unfortunately, I was not able to obtain the correct results for this portion of the lab. Ideally, the complementary filter would more closely match the values of the accelerometer, maintaining its accuracy while reducing noise due to the addition of the gyroscope component. 
+
+ADD IN COMP GRAPHS  
+
 ## Task 4: Sample Data
+
+As mentioned earlier in the lab, I started with a sample rate of only 45.5 samples/second during Task 2. This was because I had a delay in my Arduino code, which allowed me to generate sinusoidal data. When testing the gyroscope in Task 3, I removed the delay, and obtained a tenfold increase in the sample rate, bringing me to 455 samples/second. Although this is quite fast, none of the pitch or roll angles are the same. This means that the main loop does not run faster than the IMU produces new values. 
+
+As in Lab 1, throughout all of Lab 2, I stored my values in arrays before sending them back to be received by the notification handler in Jupyter Notebook. For example, I have attached the code I used to send the accelerometer data to the computer below on the left. This data would then be received and processed by the notification handler, shown below on the right.
+
+ADD THE ACCELEROMETER AND NOTIFICATION HANDLER
+
+When I had a lower sampling rate of 44.5 samples/second I collected at least 5 seconds of data. This can be seen in my graphs above in Tasks 2. Once the sampling rate was increased to 445 samples/second, I only collected data for about 1 second, as my sample size was capped at 500 samples. In order to transition from one sample rate to the other, I only need to add a delay into my function, allowing me to capture at least 5 seconds worth of IMU data. Although I will not be sampling as quickly, I will still be receiving more than enough samples to properly measure the movement of the IMU. 
 
 ## Task 5: Record a Stunt
 
+During lab, we also received our car. While driving it around, I first noticed that it was quite robust. It could be driven into walls with no damage, instead causing it to flip around, as seen below. This feature seems essential, though, since the car is not very good at driving straight. It tends to veer to either the right or the left. This makes it a bit harder to steer, so it is good that it will not get too damaged if it runs into something. 
+
+ROBUST VIDEO
+
+The stunt I performed was a backflip. Driving the car forward quickly, then suddenly reversing caused it to completely flip over. This highlights the fact that it is able to drive on both sides, so it will not be in trouble if it flips over. 
+
+BACKFLIP VIDEO
+
+
+Resources: As mentioned, I refered to the Lecture Notes and the provided Lecture 4 code for the equations. In addition, I referenced Patty Meza's website from 2024 to better conceptually understand the Fourier Transform.
 
