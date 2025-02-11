@@ -25,6 +25,10 @@ As seen in the video above, the accelerometer and gyroscope values are changing 
 
 I was able to calculate the pitch and roll from the accelerometer output. I used the equations shown below, which were given in class. 
 
+<p align="center">
+<img width="400" src="photos/Lab2/Accel_eqns.png">
+</p>
+<br>
 
 The following video shows the accelerometer output as the IMU is positioned at pitch angles of 0, 90, and then -90 degrees. I used the edges of the desk to get the most accurate measurements possible. The accelerometer pitch values were quite accurate, not differing more than about 4 degrees from the expected values. 
 
@@ -40,17 +44,26 @@ Since I found the accelerometer output values to be quite accurate, as explained
 
 Even when the IMU is stationary, flat against my desk, there is noise present in the system. This noise can be seen in the graph below of roll and pitch graphed over time. Although both values are centered around 0, the measurements vary by about 1.5 degrees. Even a discrepancy this small could lead to further error propogation down the line. 
 
-STATIONARY NOISE PIC
+<p align="center">
+<img width="400" src="photos/Lab2/Noise_stationary.png">
+</p>
+<br>
 
 ### Fourier Transform
 
 In order to reduce noise in the accelerometer output, a low pass filter can be applied to the data. First, however, the frequency cutoff value needs to be determined. In order to determine the ideal frequency cutoff, I performed a Fourier Transform of both the roll and pitch data. I used the equations shown below to calculate the Fourier Transform.
 
-  FOURIER TRANSFORM EQUATIONS
+<p align="center">
+<img width="400" src="photos/Lab2/Fourier_trans_eqn.png">
+</p>
+<br>
 
 To test a system with a greater prevalence of noise, I gently hit the table while the accelerometer was collecting data. This created more vibrations in the system. The resulting pitch and roll output can be seen below.
 
-PITCH ROLL VIBRATION PIC
+<p align="center">
+<img width="400" src="photos/Lab2/Pitch_roll_vibration.png">
+</p>
+<br>
 
 After inducing this increased vibration, I generated the following plots, which display the Fourier Transforms of pitch and roll. On top, the full Fourier Transform plots are displayed. Below displays only a zoomed in portion of the plots. These sections were used to determine the frequency cutoff value.  
 
