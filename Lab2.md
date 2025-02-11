@@ -25,7 +25,6 @@ As seen in the video above, the accelerometer and gyroscope values are changing 
 
 I was able to calculate the pitch and roll from the accelerometer output. I used the equations shown below, which were given in class. 
 
-ADD IN SCREENSHOT
 
 The following video shows the accelerometer output as the IMU is positioned at pitch angles of 0, 90, and then -90 degrees. I used the edges of the desk to get the most accurate measurements possible. The accelerometer pitch values were quite accurate, not differing more than about 4 degrees from the expected values. 
 
