@@ -113,7 +113,7 @@ During lab, we also received our car. While driving it around, I first noticed t
 
 ROBUST VIDEO
 
-The stunt I performed was a backflip. Driving the car forward quickly, then suddenly reversing caused it to completely flip over. This highlights the fact that it is able to drive on both sides, so it will not be in trouble if it flips over. 
+The stunt I performed was a frontflip. Driving the car forward quickly, then suddenly reversing caused it to completely flip over. This highlights the fact that it is able to drive on both sides, so the robot should not be in trouble if it flips over. 
 
 BACKFLIP VIDEO
 
