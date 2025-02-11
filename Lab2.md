@@ -32,11 +32,17 @@ I was able to calculate the pitch and roll from the accelerometer output. I used
 
 The following video shows the accelerometer output as the IMU is positioned at pitch angles of 0, 90, and then -90 degrees. I used the edges of the desk to get the most accurate measurements possible. The accelerometer pitch values were quite accurate, not differing more than about 4 degrees from the expected values. 
 
-ADD IN PITCH VALUES VIDEO
+<p align="center">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/crnJQpa_6dY?si=yqyGRukuIDWA_RsK" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</p>
+<br>
 
 In addition, I tested the accuracy of the accelerometer roll angles. The video below shows the accelerometer output at roll angles of 0, -90, and then 90 degrees. Similar to before, the values were quite accurate, differing no more than about 5 degrees from the expected angles. The rapid change in values occuring on screen happens when I reposition the IMU, which was unfortunately done off screen for part of the video.
 
-ADD IN ROLL VALUES VIDEO 
+<p align="center">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/QtkYrE4StWY?si=V0Ug0FhqtCgPYmvX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</p>
+<br>
 
 Since I found the accelerometer output values to be quite accurate, as explained above, I did not think it was necessary to perform a two-point calibration.
 
@@ -67,7 +73,14 @@ To test a system with a greater prevalence of noise, I gently hit the table whil
 
 After inducing this increased vibration, I generated the following plots, which display the Fourier Transforms of pitch and roll. On top, the full Fourier Transform plots are displayed. Below displays only a zoomed in portion of the plots. These sections were used to determine the frequency cutoff value.  
 
-PITCH ROLL FOURIER TRANSFORM PLOTS (FUll and zoomed)
+<p align="center">
+<img width="300" src="photos/Lab2/Fourier_pitch_full.png"> <img width="300" src="photos/Lab2/Fourier_roll_full.png">
+</p>
+<br>
+<p align="center">
+<img width="300" src="photos/Lab2/Fourier_pitch_zoom.png"> <img width="300" src="photos/Lab2/Fourier_roll_zoom.png">
+</p>
+<br>
 
 Based off the Fourier Transform plots, I chose my frequency cutoff value to be 8 Hz. Most of the significant data appears to occur at or below this frequency in both the plots of pitch and roll. 
 
@@ -75,19 +88,31 @@ Based off the Fourier Transform plots, I chose my frequency cutoff value to be 8
 
 Using my chosen frequency cutoff of 8 Hz, I implemented a lowpass filter on my accelerometer data. Using the equations given in lecture, I calculated an alpha value of 0.52. The equations I used are displayed below. Note that this alpha value was a bit high, due in part to my low sample rate of 45.5 samples/second. My sample rate was low due to delays and a print statement I implemented in order to better control the type of roll and pitch data I was collecting during testing. I will touch upon the impacts of increasing this sample rate more in tasks 3 and 4. 
 
-ADD IN ALPHA Calc PICTURE
+<p align="center">
+<img width="400" src="photos/Lab2/Alpha_calc.png">
+</p>
+<br>
 
 I first implemented the lowpass filter in Jupyter lab, seen below. I later added it to my Arduino code in order to calculate the complementary filter, discussed in Task 3. 
 
-ADD LOWPASS FILTER CODE
+<p align="center">
+<img width="400" src="photos/Lab2/Lowpass_filter.png">
+</p>
+<br>
 
 The lowpass filter was applied to the same tabletop vibration data that I used to determine the frequency cutoff. The results are shown below. The lowpass filter successfully reduced the disturbance amplitude by approximately half for both the pitch and roll data. 
 
-ADD LOWPASS ON TABLETOP PICS
+<p align="center">
+<img width="300" src="photos/Lab2/Lowpass_pitch_table.png"> <img width="300" src="photos/Lab2/Lowpass_roll_table.png">
+</p>
+<br>
 
 In addition, I tested the lowpass filter on accelerometer output collected without a disturbance. The IMU was rotated from side to side in order to generate approximately sinusoidal outputs. The results are shown below.
 
-ADD LOWPASS SINUSOIDAL GRAPHS
+<p align="center">
+<img width="300" src="photos/Lab2/Lowpass_sin_pitch.png"> <img width="300" src="photos/Lab2/Lowpass_sin_roll.png">
+</p>
+<br>
 
 Although there was no large disturbance affecting the accelerometer in this case, the value of the lowpass filter is still evident. It helps to reduce noise, increasing the accuracy of the data.
 
@@ -95,19 +120,37 @@ Although there was no large disturbance affecting the accelerometer in this case
 
 Using the equations from class, I was able to calculate pitch, roll, and yaw from the gyroscope data. I implemented the equations in Arduino using the code shown below. 
 
-ADD IN GYRO CODE
+<p align="center">
+<img width="400" src="photos/Lab2/gyro_code.png">
+</p>
+<br>
+
 
 I initially tested the gyroscope when it was sitting on my desk. The IMU was at a slight angle, which likely caused the continual increase in values shown in the left graph below. To test if sampling frequency would affect the gyroscope data, I removed the 20 milisecond delay I had in the gyroscope function. This increased sampling rate tenfold, and slightly improved the gyroscope output, as seen in the right graph below. The angle values are slightly more realistic when the sampling rate is increased, likely because a decrease in overall time prevents them from increasing too much. Note that the second time the gyroscope data was collected, the IMU was sitting at a different angle, which is why the roll angle increases rather than decreasing. 
 
-ADD IN INITIAL GYRO GRAPHS
+<p align="center">
+<img width="300" src="photos/Lab2/Gyro_initial_vals.png"> <img width="300" src="photos/Lab2/Faster_gyro.png">
+</p>
+<br>
 
 Since the accelerometer is more accurate than the gyroscope, but the gyroscope is less noisy than the accelerometer, it is a good idea to combine both to get the best output. This can be done using a complementary filter, the equation for which was given in lecture. I implemented the filter in Arduino, using the function shown below. 
 
-ADD IN COMP CODE
+<p align="center">
+<img width="400" src="photos/Lab2/Comp_filter.png">
+</p>
+<br>
 
 I generated the graphs below to compare the gyroscope and accelerometer outputs to the output from the complementary filter. The data used in the top graphs was collected when the IMU was stationary, and the data in the bottom graphs was collected during rotation of the IMU. Unfortunately, I was not able to obtain the correct results for this portion of the lab. Ideally, the complementary filter would more closely match the values of the accelerometer, maintaining its accuracy while reducing noise due to the addition of the gyroscope component. 
 
-ADD IN COMP GRAPHS  
+<p align="center">
+<img width="300" src="photos/Lab2/Comp_stationary_p.png"> <img width="300" src="photos/Lab2/Comp_stationary_p.png">
+</p>
+<br>
+<p align="center">
+<img width="300" src="photos/Lab2/Comp_move_pitch.png"> <img width="300" src="photos/Lab2/Comp_move_roll.png">
+</p>
+<br>
+
 
 ## Task 4: Sample Data
 
@@ -115,7 +158,10 @@ As mentioned earlier in the lab, I started with a sample rate of only 45.5 sampl
 
 As in Lab 1, throughout all of Lab 2, I stored my values in arrays before sending them back to be received by the notification handler in Jupyter Notebook. For example, I have attached the code I used to send the accelerometer data to the computer below on the left. This data would then be received and processed by the notification handler, shown below on the right.
 
-ADD THE ACCELEROMETER AND NOTIFICATION HANDLER
+<p align="center">
+<img width="300" src="photos/Lab2/Export_string.png"> <img width="300" src="photos/Lab2/Notification_handler.png">
+</p>
+<br>
 
 When I had a lower sampling rate of 44.5 samples/second I collected at least 5 seconds of data. This can be seen in my graphs above in Tasks 2. Once the sampling rate was increased to 445 samples/second, I only collected data for about 1 second, as my sample size was capped at 500 samples. In order to transition from one sample rate to the other, I only need to add a delay into my function, allowing me to capture at least 5 seconds worth of IMU data. Although I will not be sampling as quickly, I will still be receiving more than enough samples to properly measure the movement of the IMU. 
 
@@ -123,12 +169,17 @@ When I had a lower sampling rate of 44.5 samples/second I collected at least 5 s
 
 During lab, we also received our car. While driving it around, I first noticed that it was quite robust. It could be driven into walls with no damage, instead causing it to flip around, as seen below. This feature seems essential, though, since the car is not very good at driving straight. It tends to veer to either the right or the left. This makes it a bit harder to steer, so it is good that it will not get too damaged if it runs into something. 
 
-ROBUST VIDEO
+<p align="center">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/AqpXHzaEsl4?si=5kLwOYkM5SIjGfsK" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</p>
+<br>
 
 The stunt I performed was a frontflip. Driving the car forward quickly, then suddenly reversing caused it to completely flip over. This highlights the fact that it is able to drive on both sides, so the robot should not be in trouble if it flips over. 
 
-BACKFLIP VIDEO
-
+<p align="center">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/vp9wKIXuG5Y?si=MBntBD_CmaxJPjGA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</p>
+<br>
 
 Resources: As mentioned, I refered to the Lecture Notes and the provided Lecture 4 code for the equations. In addition, I referenced Patty Meza's website from 2024 to better conceptually understand the Fourier Transform.
 
