@@ -10,3 +10,4 @@ Below you will find an updated account of the work I have done so far this semes
 
 - [Lab 1: Artemis & Bluetooth](/Lab1.md)
 - [Lab 2: IMU](/Lab2.md)
+- [Lab 3: ](Time of Flight Sensors/Lab3.md)
