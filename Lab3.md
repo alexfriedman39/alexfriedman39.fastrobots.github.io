@@ -171,11 +171,17 @@ The final step in this lab was to integrate the ToF sensors with the IMU. Since 
 
 The data collected from the IMU and ToF was receieved and handled by my new notification handler. This Python code is shown below.
 
-***NEW NOTIF HANDLER***
+<p align="center">
+<img width="400" src="photos/Lab3/new_notif.png"> 
+</p>
+<br>
 
 After the data was processed by the notification handler, I plotted both IMU and the ToF data over time. Both plots are shown below.
 
-***IMU AND TOF PLOTS***
+<p align="center">
+<img width="400" src="photos/Lab3/IMU_data.png"> <img width="400" src="photos/Lab3/ToF_data.png"> 
+</p>
+<br>
 
 When the data shown in these plots was collected, the ToF were being held mostly steady, but the IMU sensor was oscillating slightly. However, at around 2.4 seconds Sensor 1 was moved a bit abrupty, causing a rapid change in distance recorded. In reality, it did not move quite that far, but it likely lost sight of the original reference point since it was twisted in the air, leading to the rapid change in measured distance. Interestingly, it is evident that this abrupt change corresponded with a change in roll, as recorded by the accelerometer data seen on the IMU plot. 
 
@@ -193,19 +199,48 @@ Reflective IR sensors work very well at short distances, so they are great for d
 
 I tested the ToF sensor on four different textures: felt (couch), glass, cardboard, and carpet. Pictures of these textures are shown below.
 
-***TEXTURE PICS***
+<p align="center">
+<img width="400" src="photos/Lab3/couch_text.png"> <img width="400" src="photos/Lab3/glass_text.png"> 
+</p>
+<br>
+<p align="center">
+<img width="400" src="photos/Lab3/cardb_text.png"> <img width="400" src="photos/Lab3/carpet_text.png"> 
+</p>
+<br>
+
 
 The sensor was placed 15 cm from the textured object, and 5 distance measurements were taken. The average distance output for each item is shown below. 
 
-***Serial outputs***
+<p align="center">
+<img width="400" src="photos/Lab3/couch.png"> <img width="400" src="photos/Lab3/glass.png"> 
+</p>
+<br>
+<p align="center">
+<img width="400" src="photos/Lab3/cardb.png"> <img width="400" src="photos/Lab3/carpet.png"> 
+</p>
+<br>
 
 As seen in the images, the cardboard and carpet gave pretty accurate measurements. However, the glass appeared closer than it actually was, and the sensor had significantly more trouble getting an accurate reading for the couch (felt). These discrepancies likely result from the fact that both glass and softer objects interfere with light reflection. 
 
 As well, I tested the ToF sensor on four different colors: white, black, yellow, and blue. All of the colors were draw on my iPad in order to keep the test consistent. Images are shown below.
 
-***Ipad pics***
+<p align="center">
+<img width="400" src="photos/Lab3/white_ipad.png"> <img width="400" src="photos/Lab3/black_ipad.png"> 
+</p>
+<br>
+<p align="center">
+<img width="400" src="photos/Lab3/yellow_ipad.png"> <img width="400" src="photos/Lab3/blue_ipad.png"> 
+</p>
+<br>
 
 As seen in the average distance output for each color below, the darker colors were more accurate than the lighter ones. This was likely a result of the increase in light emission with the lighter colors, especially since my iPad was turned on and emitting light from the screen. 
 
-***Serial outputs for color***
+<p align="center">
+<img width="400" src="photos/Lab3/White.png"> <img width="400" src="photos/Lab3/Black.png"> 
+</p>
+<br>
+<p align="center">
+<img width="400" src="photos/Lab3/Yellow.png"> <img width="400" src="photos/Lab3/Blue.png"> 
+</p>
+<br>
 
