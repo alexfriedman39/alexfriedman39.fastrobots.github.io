@@ -138,18 +138,18 @@ The following embedded video shows this code in action.
 With comments labeling the data output, the loop executes 1977 times in 10 seconds, or at a rate of 199.7 times/second. Removing these comments increases the rate to 231.5 times/second. Screenshots of the Serial monitor output that corresponds to these two cases is shown below.
 
 <p align="center">
-<img width="400" src="photos/Lab3/both_sens_com.png"> <img width="400" src="photos/Lab3/both_sens_noncom.png"> 
+<img width="400" src="photos/Lab3/both_sens_com.png"> <img width="400" src="photos/Lab3/both_sens_nocom.png"> 
 </p>
 <br>
 
 I also tested just one sensor. This led to much faster rates of 368.2 times/second with comments and 499.9 times/second without. The code and resulting Serial monitor screenshots are shown below. 
 
 <p align="center">
-<img width="400" src="photos/Lab3/Single_sens_comments.png"> 
+<img width="400" src="photos/Lab3/Single_sens_fun.png"> 
 </p>
 <br>
 <p align="center">
-<img width="400" src="photos/Lab3/Single_sens_fun.png"> <img width="400" src="photos/Lab3/Single_sens_noncom.png"> 
+<img width="400" src="photos/Lab3/Single_sens_comments.png"> <img width="400" src="photos/Lab3/Single_sens_nocom.png"> 
 </p>
 <br>
 
