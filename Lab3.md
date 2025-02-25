@@ -117,13 +117,19 @@ The setup had to be changed as well. To ensure the first sensor is set to the ne
 
 The Serial output displayed below shows that both sensors were able to connect properly once these changes were made. 
 
-***PIC OF SERIAL OUTPUT***
+<p align="center">
+<img width="400" src="photos/Lab3/sensors_online.png"> 
+</p>
+<br>
 
 ## Task 6: 
 
 The ToF sensors take a bit of time to update with new measurements. In order to prevent this from causing delays in robot response time, I wrote the following code, which prints time continuously, adding in distance measurements from either or both sensors when they are ready. 
 
-***ARDUINO CODE***
+<p align="center">
+<img width="400" src="photos/Lab3/Both_sens_ard.png"> 
+</p>
+<br>
 
 The following embedded video shows this code in action. 
 
@@ -131,19 +137,37 @@ The following embedded video shows this code in action.
 
 With comments labeling the data output, the loop executes 1977 times in 10 seconds, or at a rate of 199.7 times/second. Removing these comments increases the rate to 231.5 times/second. Screenshots of the Serial monitor output that corresponds to these two cases is shown below.
 
-***PICTURES OF SERIAL MONITOR WITH OUTPUT (both cases)***
+<p align="center">
+<img width="400" src="photos/Lab3/both_sens_com.png"> <img width="400" src="photos/Lab3/both_sens_noncom.png"> 
+</p>
+<br>
 
 I also tested just one sensor. This led to much faster rates of 368.2 times/second with comments and 499.9 times/second without. The code and resulting Serial monitor screenshots are shown below. 
 
-***singular sensor code and serial output pictures*** 
+<p align="center">
+<img width="400" src="photos/Lab3/Single_sens_comments.png"> 
+</p>
+<br>
+<p align="center">
+<img width="400" src="photos/Lab3/Single_sens_fun.png"> <img width="400" src="photos/Lab3/Single_sens_noncom.png"> 
+</p>
+<br>
 
 This code required fewer calls of checkforDataReady() and startRanging() since there was only one sensor instead of two. This indicates that these commands are limiting factors that prevent the loop from executing any faster. 
 
 ## Task 7: 
 
-The final step in this lab was to integrate the ToF sensors with the IMU. Since the IMU and the ToF sensors do not have measurements available at the same intervals, I had to make the time stamps recorded for each sensor were unique. I did this by writing command displayed below in Arduino. 
+The final step in this lab was to integrate the ToF sensors with the IMU. Since the IMU and the ToF sensors do not have measurements available at the same intervals, I had to make the time stamps recorded for each sensor were unique. I did this by writing a command in Arduino that looped through collecting IMU values, and outputting distance values when they are available. The code for this loop is displayed below.
 
-***IMU AND TOF ARDUINO CODE***
+<p align="center">
+<img width="400" src="photos/Lab3/imu_tof_1.png"> 
+</p>
+<br>
+
+<p align="center">
+<img width="400" src="photos/Lab3/imu_tof_2.png"> 
+</p>
+<br>
 
 The data collected from the IMU and ToF was receieved and handled by my new notification handler. This Python code is shown below.
 
