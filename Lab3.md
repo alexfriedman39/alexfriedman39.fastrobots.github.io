@@ -40,7 +40,11 @@ I took measurements at distances ranging from 5 to 130 cm. At each distance meas
 
 **ARDUINO GET DIST
 
-The mean of the measured data compared to the actual distance is plotted below. 
+The data was then processed in Python at each distance. An example of how this was done for the 10 cm distance is shown below. 
+
+***python_10_cm
+
+As seen in the code, part of the data processing included calculating the mean at each distance. This allowed the mean of the measured data be plotted against the actual distance. This graph is shown below. 
 
 ***ADD IN MEASURED V ACTUAL PLOT***
 
