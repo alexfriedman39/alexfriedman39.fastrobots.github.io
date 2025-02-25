@@ -16,7 +16,7 @@ Since the ToF sensors will be essential for regulating the robot's movement, the
 During lab, the ToF sensors were soldered to the longer QWIIC connectors in accordance with the wiring diagram shown above. This is shown in the images below. 
 
 <p align="center">
-<img width="400" src="photos/Lab3/ToF_front.jpg"> <img width="400" src="photos/Lab3/ToF_back.jpg">
+<img width="400" src="photos/Lab2/ToF_front.jpg"> <img width="400" src="photos/Lab3/ToF_back.jpg">
 </p>
 <br>
 
