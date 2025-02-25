@@ -47,7 +47,7 @@ The short mode is likely ideal for the final robot. The car is quite small, so a
 In order to test the short mode of my ToF sensor, I taped the sensor to the back of my laptop and lined it up parallel to a wall. The setup is shown in the images below. 
 
 <p align="center">
-<img width="400" src="photos/Lab3/Setup_front.jpg"> <img width="400" src="photos/Lab3/Setup_above.png">
+<img width="400" src="photos/Lab3/Setup_front.png"> <img width="400" src="photos/Lab3/Setup_above.png">
 </p>
 <br>
 
