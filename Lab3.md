@@ -54,7 +54,7 @@ In order to test the short mode of my ToF sensor, I taped the sensor to the back
 I took measurements at distances ranging from 5 to 130 cm. At each distance measured, I collected 5 data points from the sensor in order to obtain repeatability data. The Arduino code written for this task is shown below. 
 
 <p align="center">
-<img width="400" src="photos/Lab3/Arduio_get_dist.png"> 
+<img width="400" src="photos/Lab3/Arduino_get_dist.png"> 
 </p>
 <br>
 
