@@ -212,11 +212,11 @@ I tested the ToF sensor on four different textures: felt (couch), glass, cardboa
 The sensor was placed 15 cm from the textured object, and 5 distance measurements were taken. The average distance output for each item is shown below. 
 
 <p align="center">
-<img width="400" src="photos/Lab3/couch.png"> <img width="400" src="photos/Lab3/glass.png"> 
+<img width="400" src="photos/Lab3/Couch.png"> <img width="400" src="photos/Lab3/Glass.png"> 
 </p>
 <br>
 <p align="center">
-<img width="400" src="photos/Lab3/cardb.png"> <img width="400" src="photos/Lab3/carpet.png"> 
+<img width="400" src="photos/Lab3/Cardb.png"> <img width="400" src="photos/Lab3/Carpet.png"> 
 </p>
 <br>
 
