@@ -5,7 +5,7 @@
 Throughout this lab, we worked with Time-of-Flight (ToF) distance sensors. According to the corresponding datasheet, the default I2C address for a ToF sensor is 0x52. Since we will be using two sensors during the lab, one of the addresses will need to be changed in order to get distance readings from both at the same time. This will be done by wiring pin 8 on the Artemis board to the XSHUT pin on one sensor. This configuration is shown on the wiring diagram below. In addition to the XSHUT pin, the wiring diagram shows how the other ToF pins will be connected to the QWIIC connector.
 
 <p align="center">
-<img width="400" src="photos/Lab3/Wiring_sketch.png">
+<img width="400" src="photos/Lab3/Wiring_sketch.jpeg">
 </p>
 <br>
 
@@ -16,7 +16,7 @@ Since the ToF sensors will be essential for regulating the robot's movement, the
 During lab, the ToF sensors were soldered to the longer QWIIC connectors in accordance with the wiring diagram shown above. This is shown in the images below. 
 
 <p align="center">
-<img width="400" src="photos/Lab3/Wiring_sketch.png">
+<img width="400" src="photos/Lab3/ToF_front.HEIC"> <img width="400" src="photos/Lab3/ToF_back.HEIC">
 </p>
 <br>
 ***ATTACH IMAGES OF QWIIC CONNETORS AND TOF***
