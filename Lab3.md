@@ -23,7 +23,7 @@ During lab, the ToF sensors were soldered to the longer QWIIC connectors in acco
 Next, the QWIIC connectors were connected to the QWIIC breakout board. The IMU was also attached to the breakout board via a shorter QWIIC connector. Then, the QWIIC breakout board was connected to the Artemis board. In addition, the battery was soldered to JST jumper wires in order for it to connect to the Artemis board. The full configuration, minus the battery, is shown below. 
 
 <p align="center">
-<img width="400" src="photos/Lab3/Full_config.jpg">
+<img width="400" src="photos/Lab3/Full_config.png">
 </p>
 <br>
 
