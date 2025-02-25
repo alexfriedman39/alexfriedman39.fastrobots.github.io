@@ -16,20 +16,25 @@ Since the ToF sensors will be essential for regulating the robot's movement, the
 During lab, the ToF sensors were soldered to the longer QWIIC connectors in accordance with the wiring diagram shown above. This is shown in the images below. 
 
 <p align="center">
-<img width="400" src="photos/Lab3/ToF_front.HEIC"> <img width="400" src="photos/Lab3/ToF_back.HEIC">
+<img width="400" src="photos/Lab3/ToF_front.jpg"> <img width="400" src="photos/Lab3/ToF_back.jpg">
 </p>
 <br>
-***ATTACH IMAGES OF QWIIC CONNETORS AND TOF***
 
 Next, the QWIIC connectors were connected to the QWIIC breakout board. The IMU was also attached to the breakout board via a shorter QWIIC connector. Then, the QWIIC breakout board was connected to the Artemis board. In addition, the battery was soldered to JST jumper wires in order for it to connect to the Artemis board. The full configuration, minus the battery, is shown below. 
 
-***ADD PIC OF FULL CONFIG***
+<p align="center">
+<img width="400" src="photos/Lab3/Full_setup.jpg">
+</p>
+<br>
 
 ## Task 2: Scan for I2C Device
 
 Running Example1_wire_I2C gave 0x29 as the I2C address for the ToF sensor. This output is shown below. 
 
-***ADD PIC OF I2C ADDY***
+<p align="center">
+<img width="400" src="photos/Lab3/Default_I2C.png">
+</p>
+<br>
 
 As mentioned in the prelab, the expected I2C address is 0x52. This occurs because the binary form of 0x52 gets shifted 1 place to the right, resulting in 0x29. 
 
@@ -41,37 +46,56 @@ The short mode is likely ideal for the final robot. The car is quite small, so a
 
 In order to test the short mode of my ToF sensor, I taped the sensor to the back of my laptop and lined it up parallel to a wall. The setup is shown in the images below. 
 
-***ADD IN PICS OF SETUP***
+<p align="center">
+<img width="400" src="photos/Lab3/Setup_front.jpg"> <img width="400" src="photos/Lab3/Setup_above.png">
+</p>
+<br>
 
 I took measurements at distances ranging from 5 to 130 cm. At each distance measured, I collected 5 data points from the sensor in order to obtain repeatability data. The Arduino code written for this task is shown below. 
 
-**ARDUINO GET DIST
+<p align="center">
+<img width="400" src="photos/Lab3/Arduio_get_dist.png"> 
+</p>
+<br>
 
 The data was then processed in Python at each distance. An example of how this was done for the 10 cm distance is shown below. 
 
-***python_10_cm
+<p align="center">
+<img width="400" src="photos/Lab3/Python_10_cm.png"> 
+</p>
+<br>
 
 As seen in the code, part of the data processing included calculating the mean at each distance. This allowed the mean of the measured data be plotted against the actual distance. This graph is shown below. 
 
-***ADD IN MEASURED V ACTUAL PLOT***
-
-***ADD IN CODE and explanation***
+<p align="center">
+<img width="400" src="photos/Lab3/Actual_v_meas.png"> 
+</p>
+<br>
 
 As seen above, there was a linear relationship between the actual and measured distances over the whole range of distances. To examine the accuracy results more closely, I also plotted the difference between the measured and actual distances over the distance range. 
 
-***ADD IN ACCURACY PLOT***
+<p align="center">
+<img width="400" src="photos/Lab3/Accuracy.png"> 
+</p>
+<br>
 
 As shown in the plot above, the measured distance values were pretty accurate throughout the range, deviating about 1.5 cm at most. It does seem that accuracy decreases slightly as distance increases, but the difference is still quite small compared to the order of magnitude of the measured value. For example, at a distance of 100 cm, there is an approximately 1.5 cm deviation. However, this is only a 1.5% error, demonstrating that the distance values are quite accurate. 
 
 The standard deviation was calculated at each distance value to determine repeatability. The plot of standard deviation over distance is shown below. 
 
-***STANDARD DEV PLOT***
+<p align="center">
+<img width="400" src="photos/Lab3/Repeatability.png"> 
+</p>
+<br>
 
 As shown in the plot, the standard deviation between data points is very small. This shows that the ToF distance values should be repeatable. However, it is important to note that these values were taken while the sensors were stationary, which will not be the case once they are affixed to the robot. 
 
 Finally, I calculated the ranging time at each distance, which is the time between each data point collected by the ToF sensor. The code I used to calculate it in Python is displayed below. 
 
-***RANGING TIME CODE***
+<p align="center">
+<img width="400" src="photos/Lab3/Ranging_time_code.png"> 
+</p>
+<br>
 
 The ranging time remained relatively the same, even as distance increased. It ranged between 0.0505 and 0.05275 seconds. 
 
@@ -79,11 +103,17 @@ The ranging time remained relatively the same, even as distance increased. It ra
 
 As discussed in the prelab, using both sensors in parallel requires changing the address of one of the sensors. In addition to doing this manually with wiring, the new address needs to be specified in the Arduino code. The code I used to do this is shown below.
 
-***PIC OF ARD CODE W/ NEW DEFINITIONS FOR ADDY***
+<p align="center">
+<img width="400" src="photos/Lab3/Def_addys.png"> 
+</p>
+<br>
 
 The setup had to be changed as well. To ensure the first sensor is set to the new address, the XSHUT pin must be set to low. Then, once the first sensor is running, the XSHUT pin can be set back to high. The Arduino code for this can be seen below.
 
-***PIC OF ARD CODE CHANGING VOID LOOP***
+<p align="center">
+<img width="400" src="photos/Lab3/new_void.png"> 
+</p>
+<br>
 
 The Serial output displayed below shows that both sensors were able to connect properly once these changes were made. 
 
