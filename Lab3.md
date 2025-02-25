@@ -247,3 +247,5 @@ As seen in the average distance output for each color below, the darker colors w
 </p>
 <br>
 
+###Sources:
+I referenced Mikayla Lahr's website from last year when figuring out how I should wire my ToF sensors to the QWIIC connectors. 
