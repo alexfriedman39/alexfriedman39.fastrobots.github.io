@@ -145,7 +145,7 @@ With comments labeling the data output, the loop executes 1977 times in 10 secon
 I also tested just one sensor. This led to much faster rates of 368.2 times/second with comments and 499.9 times/second without. The code and resulting Serial monitor screenshots are shown below. 
 
 <p align="center">
-<img width="400" src="photos/Lab3/Single_sens_fun.png"> 
+<img width="400" src="photos/Lab3/Single_sense_fun.png"> 
 </p>
 <br>
 <p align="center">
