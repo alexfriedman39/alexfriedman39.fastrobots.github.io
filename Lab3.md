@@ -133,7 +133,10 @@ The ToF sensors take a bit of time to update with new measurements. In order to 
 
 The following embedded video shows this code in action. 
 
-***UPLOAD AND ATTACH VIDEO***
+<p align="center">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/d2fCMEQz3Rk?si=QfO51WKgEe_6H7zm" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</p>
+<br>
 
 With comments labeling the data output, the loop executes 1977 times in 10 seconds, or at a rate of 199.7 times/second. Removing these comments increases the rate to 231.5 times/second. Screenshots of the Serial monitor output that corresponds to these two cases is shown below.
 
