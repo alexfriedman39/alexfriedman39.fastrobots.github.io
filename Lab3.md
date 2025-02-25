@@ -4,7 +4,10 @@
 
 Throughout this lab, we worked with Time-of-Flight (ToF) distance sensors. According to the corresponding datasheet, the default I2C address for a ToF sensor is 0x52. Since we will be using two sensors during the lab, one of the addresses will need to be changed in order to get distance readings from both at the same time. This will be done by wiring pin 8 on the Artemis board to the XSHUT pin on one sensor. This configuration is shown on the wiring diagram below. In addition to the XSHUT pin, the wiring diagram shows how the other ToF pins will be connected to the QWIIC connector.
 
-***ATTACH WIRING DIAGRAM****
+<p align="center">
+<img width="400" src="photos/Lab3/Wiring_sketch.png">
+</p>
+<br>
 
 Since the ToF sensors will be essential for regulating the robot's movement, they should be attached to the longer QWIIC connectors. This increases the flexibility of their positioning, allowing them to be placed on the front, sides, or back as necessary. For example, it would be beneficial to have one sensor on the front and one on the right side of the car if I am navigating following the wall to my right. But, if I just want to prevent crashes it might be better to have one on the back instead of the front of the car. 
 
@@ -12,6 +15,10 @@ Since the ToF sensors will be essential for regulating the robot's movement, the
 
 During lab, the ToF sensors were soldered to the longer QWIIC connectors in accordance with the wiring diagram shown above. This is shown in the images below. 
 
+<p align="center">
+<img width="400" src="photos/Lab3/Wiring_sketch.png">
+</p>
+<br>
 ***ATTACH IMAGES OF QWIIC CONNETORS AND TOF***
 
 Next, the QWIIC connectors were connected to the QWIIC breakout board. The IMU was also attached to the breakout board via a shorter QWIIC connector. Then, the QWIIC breakout board was connected to the Artemis board. In addition, the battery was soldered to JST jumper wires in order for it to connect to the Artemis board. The full configuration, minus the battery, is shown below. 
