@@ -2,7 +2,7 @@
 
 ## Prelab
 
-Before soldering my motor drivers, I first drew the following diagram.
+Before soldering my motor drivers, I drew the following wiring diagram. 
 
 <p align="center">
 <img width="400" src="photos/Lab4/IMG_442FED42B98C-1.jpeg">
