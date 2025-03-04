@@ -61,13 +61,19 @@ After the code shown above was uploaded, both the left and right wheels were abl
 
 Once I verified that the motor drivers were sucessfully able to control the wheels of the car, I connected the motor drivers to the 850 mAh battery. Using the same code as task 2, the battery was able to power both the left and right wheels. Videos demonstrating this for both the left and right wheels are seen below, respectively. 
 
-*** VIDEOS OF BOTH WHEELS POWERED BY BATTERY ***
+<p align="center">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ytgQxG_3j0g?si=7ViOWgyx-1drUQDj" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> <iframe width="560" height="315" src="https://www.youtube.com/embed/YvkjAAA6_Ic?si=fFMDig2sonaTBwpz" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</p>
+<br>
 
 ## Task 4: Installation of Components
 
 For the purposes of this lab, only the Artemis, motor drivers, and batteries are needed. As seen below, I temporarily installed these components in the car to perform the next few tasks. In the future, I will also include the IMU and ToF sensors. In addition, the final installation will be much neater, with braided cables and zip ties to separate components. I unfortunately did not have access to zipties at the time of lab 4 completion, but I will be sure to incorporate them to clean up my installation as soon as possible. Although not ideal, my temporary installation held up very well for the tasks in this lab, since the car did not have to do more than move forward and spin.  
 
-*** ADD INSTALLATION PICTURE ***
+<p align="center">
+<img width="400" src="photos/Lab4/Installation.png">
+</p>
+<br>
 
 ## Task 5: Lower Limit PWM Value 
 
@@ -77,29 +83,48 @@ Since these cars will move very fast at most PWM values, it is important to find
 
 As mentioned above, the discrepancy between the lower limit PWM values for each side requires implementation of a calibration factor to ensure the car will move forward in a straight line. This calibration factor was implemented as seen below. 
 
-*** ADD IN CALIBRATION FACTOR IMAGE w left and right calc ***
+<p align="center">
+<img width="400" src="photos/Lab4/Cal_factor_1.png">
+</p>
+<br>
+
 
 To test the calibration factor, the car was programmed to move forward in a straight line for 6 feet. The code that allowed it to do so can be seen below. 
 
-*** MOVE IN STRAIGHT LINE CODE ***
+<p align="center">
+<img width="400" src="photos/Lab4/Move_forward.png">
+</p>
+<br>
 
 Using the calibration factor, the car was successfully able to travel straight for 6 feet, as seen in the video below. 
 
-*** STRAIGHT FOR 6 FEET VIDEO ***
+<p align="center">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/FBLw1vH6DxE?si=kyGoboNnjrAzx2cU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</p>
+<br>
 
 ## Task 7: Open Loop Control
 
 After verifying the calibration factor, I tested open loop, untethered control. I programmed the robot to move forward 6 feet, turn 180 degrees to the left, move back to the start and turn 180 degrees to the right. This would ideally bring the robot back to its starting position. The calibration factor was used to implement the turns, as seen in the picture below. 
 
-*** CALIBRATION FACTOR FOR TURN TIME ***
+<p align="center">
+<img width="400" src="photos/Lab4/Cal_factor_turn.png">
+</p>
+<br>
 
 The full code used to implement the open loop control is shown below.
 
-*** OPEN LOOP CODE *** 
+<p align="center">
+<img width="400" src="photos/Lab4/Open_loop_code.png">
+</p>
+<br>
 
 The open loop control was mostly successful. Two open loop trials can be seen below. Both used the code shown above. There were slight variations in robot behavior between trials, which I believe is partially due to the fact that my batteries were not fully charged. These variations emphasize the importance of utilizing sensor input to control the robot instead of relying on hard code. 
 
-*** VIDEOS SHOWING OPEN LOOP ***
+<p align="center">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/9__vCb45jYU?si=ea2-5eiYW4HesVKk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> <iframe width="560" height="315" src="https://www.youtube.com/embed/Jy8QcLcU9CI?si=qDgJl6LOryVfFViz" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</p>
+<br>
 
 ## 5000 Level Tasks
 
@@ -111,4 +136,7 @@ As mentioned above in task 1, I tested two PWM values, 100 and 200. Please refer
 
 In task 5, I found that the lower limit PWM values were 90 for the left wheels and 60 for the right wheels. These are the values required by the robot to overcome static friction. However, once moving, the robot no longer requires values quite as high. I found that the lowest values the robot can receive and still move forward are 80 for the left and 55 for the right wheels. The robot in motion at these values can be seen in the video below. 
 
-*** Video of robot moving at lower values ***
+<p align="center">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/eu_zUO72bNI?si=PELbNEh0XYSpeylF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</p>
+<br>
