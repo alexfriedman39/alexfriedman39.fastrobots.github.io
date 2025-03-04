@@ -38,3 +38,58 @@ After the code shown above was uploaded, both the left and right wheels were abl
 
 *** VIDEO OF LEFT AND RIGHT WHEELS SPINNING (W DC POWER)
 
+## Task 3: Power Motor Driver from 850 mAh Battery
+
+Once I verified that the motor drivers were sucessfully able to control the wheels of the car, I connected the motor drivers to the 850 mAh battery. Using the same code as task 2, the battery was able to power both the left and right wheels. Videos demonstrating this for both the left and right wheels are seen below, respectively. 
+
+*** VIDEOS OF BOTH WHEELS POWERED BY BATTERY ***
+
+## Task 4: Installation of Components
+
+For the purposes of this lab, only the Artemis, motor drivers, and batteries are needed. As seen below, I temporarily installed these components in the car to perform the next few tasks. In the future, I will also include the IMU and ToF sensors. In addition, the final installation will be much neater, with braided cables and zip ties to separate components. I unfortunately did not have access to zipties at the time of lab 4 completion, but I will be sure to incorporate them to clean up my installation as soon as possible. Although not ideal, my temporary installation held up very well for the tasks in this lab, since the car did not have to do more than move forward and spin.  
+
+*** ADD INSTALLATION PICTURE ***
+
+## Task 5: Lower Limit PWM Value 
+
+Since these cars will move very fast at most PWM values, it is important to find their lower limit. This will allow the robot to be run at a "slower" pace when necessary. When testing from rest, I found the lower limit PWM values were 60 for the right wheels and 90 for the left wheels. These values allowed each side to overcome static friction and continue moving at a constant pace. However, the discrepancy between the values for the left and right wheels means that a calibration factor will have to be applied. 
+
+## Task 6: Calibration Factor
+
+As mentioned above, the discrepancy between the lower limit PWM values for each side requires implementation of a calibration factor to ensure the car will move forward in a straight line. This calibration factor was implemented as seen below. 
+
+*** ADD IN CALIBRATION FACTOR IMAGE w left and right calc ***
+
+To test the calibration factor, the car was programmed to move forward in a straight line for 6 feet. The code that allowed it to do so can be seen below. 
+
+*** MOVE IN STRAIGHT LINE CODE ***
+
+Using the calibration factor, the car was successfully able to travel straight for 6 feet, as seen in the video below. 
+
+*** STRAIGHT FOR 6 FEET VIDEO ***
+
+## Task 7: Open Loop Control
+
+After verifying the calibration factor, I tested open loop, untethered control. I programmed the robot to move forward 6 feet, turn 180 degrees to the left, move back to the start and turn 180 degrees to the right. This would ideally bring the robot back to its starting position. The calibration factor was used to implement the turns, as seen in the picture below. 
+
+*** CALIBRATION FACTOR FOR TURN TIME ***
+
+The full code used to implement the open loop control is shown below.
+
+*** OPEN LOOP CODE *** 
+
+The open loop control was mostly successful. There were slight variations between trials, which I believe is partially due to the fact that my batteries were not fully charged. An example of one of the open loop trials can be seen in the video below. 
+
+*** VIDEO SHOWING OPEN LOOP ***
+
+## 5000 Level Tasks
+
+### 1. analogWrite Frequency
+
+As mentioned above in task 1, I tested two PWM values, 100 and 200. Please refer to the images in Task 1 for both the code used and the images of the oscilloscope, including the frequency. For both PWM values, the oscilloscope measured a frequency of 183.7 Hz, or a sample every 5.4 ms. In Lab 3, I found that the ToF sensors collected 1197 samples in 10 seconds, or approximately 1 sample every 5 ms. Therefore, although manually configuring the timers would likely give you a smoother response from the motors, it seems unnecessary. Instead, it makes more sense to update the PWM values as data is received from the ToF sensors, especially since their sample rates are already very similar.
+
+### 2. Lowest PWM Value - Speed Discussion 
+
+In task 5, I found that the lower limit PWM values were 90 for the left wheels and 60 for the right wheels. These are the values required by the robot to overcome static friction. However, once moving, the robot no longer requires values quite as high. I found that the lowest values the robot can receive and still move forward are 80 for the left and 55 for the right wheels. The robot in motion at these values can be seen in the video below. 
+
+*** Video of robot moving at lower values ***
