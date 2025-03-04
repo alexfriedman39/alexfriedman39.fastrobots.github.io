@@ -4,7 +4,11 @@
 
 Before soldering my motor drivers, I first drew the following diagram.
 
-*** DRAW AND ADD IN THE DIAGRAM ***
+<p align="center">
+<img width="400" src="photos/Lab4/IMG_442FED42B98C-1.jpeg">
+</p>
+<br>
+
 
 The motor driver and the Artemis use two different batteries. The motor drivers will be connected to the 850 mAh battery, while the Artemis is connected to the 750 mAh battery. The motor drivers use the higher mAh battery because they require a higher current to be drawn from the battery to ensure proper functionality. In addition, separating the batteries isolate the two components, allowing them to work without relying on the other. 
 
