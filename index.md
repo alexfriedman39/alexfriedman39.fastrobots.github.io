@@ -12,4 +12,4 @@ Below you will find an updated account of the work I have done so far this semes
 - [Lab 2: IMU](/Lab2.md)
 - [Lab 3: Time of Flight Sensors](/Lab3.md)
 - [Lab 4: Motor Drivers and Open Loop Control](/Lab4.md)
-- [Lab 4: Linear PID Control and Linear Interpolation](/Lab5.md)
+- [Lab 5: Linear PID Control and Linear Interpolation](/Lab5.md)
