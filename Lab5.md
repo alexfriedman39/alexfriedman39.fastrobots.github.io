@@ -22,3 +22,17 @@ The distance and speed graphs that resulted from the addition of a hardstop at K
 As you can see, the robot did not oscillate, and instead stopped not exactly at 1 ft from the wall. 
 
 
+notes: 
+
+have videos of P controller and varying Kp values
+
+first implement integral and derivative control to get PID
+
+then need to:
+- test results from varying distances (2-4 m?)
+- figure out how to document linear speed
+  - not in the task list tho
+- record frequency
+  - refer to stefan's
+- change code so that new speed is calculated even when distance sensor doesn't update
+  - should result in faster frequency
