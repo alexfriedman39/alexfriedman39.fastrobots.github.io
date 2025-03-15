@@ -30,6 +30,7 @@ first implement integral and derivative control to get PID
 
 then need to:
 - test results from varying distances (2-4 m?)
+  - requires you to change to long distance mode to go from these distances
 - figure out how to document linear speed
   - not in the task list tho
 - record frequency
