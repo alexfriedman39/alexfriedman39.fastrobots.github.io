@@ -5,11 +5,13 @@
 First, before starting on this lab, I rewired my car to make the electronics more compact. I made sure to keep the connections the same as before, but I cut the wires down significantly and organized them so that the motor drivers, arduino, and battery fit in the back of the car. I placed the TOF sensors on the front and back of the car, and placed the IMU at the front of the car on top. An image of the final version is shown below.
 
 *** FINAL WIRING OF CAR PHOTO *** 
-![Updated_car_wiring](https://github.com/user-attachments/assets/1b6dbc69-8c19-4fef-bdf9-fa400f27b3ed)
 
+In addition, before I started to implement a PID controller, I had to make sure I had a good debugging system. In order to do this, I first created a new python script to allow the car to be controlled via Bluetooth. In python, I also edited my notification handler to receive the time, distance, and speed (PWM value) debugging data that would be collected from the robot. The data arrays were constrained to a length of 500 in Arduino to make sure the Artemis's internal RAM storage would not be surpassed.
 
+To make my life easier when testing the robot, I implemented certain commands in Arduino, including EDIT_GAINS and CLEAR_ARRAYS. Both are shown below.
 
-In addition, before I started to implement a PID controller, I had to make sure I had a good debugging system. In order to do this, I first created a new python script to allow the car to be controlled via Bluetooth. I implemented corresponding commands in Arduino, including ...
+*** EDIT_GAINS AND CLEAR_ARRAYS CODE ***
+...
 
 ## Task...
 
