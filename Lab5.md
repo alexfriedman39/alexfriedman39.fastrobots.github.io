@@ -36,6 +36,8 @@ As you can see from the graphs above, the robot stopped at about 1 foot from the
 
 Using this code, I again tested just a P controller at varying Kp values. 
 
+for the videos/graphs i have for Kp = 0.008 and Ki = 0.000001, note that car continued to 1 ft but only 500 data points were collected
+->after, changed it to record 1000 since now a higher frequency requires more storage in order to see full car behavior
 
 notes: 
 
