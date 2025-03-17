@@ -46,6 +46,7 @@ then need to:
 - record frequency
   - found for K controller, got approx 16.5 samples/second for dist measurements (just gotten from one sample, didn't look at others)
   - refer to stefan's
+  - got approx 65 Hz after changing it
 - test results from varying distances (2-4 m?)
   - requires you to change to long distance mode to go from these distances
 - figure out how to document linear speed???
