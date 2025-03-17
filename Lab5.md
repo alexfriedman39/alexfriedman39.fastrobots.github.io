@@ -8,20 +8,23 @@ First, before starting on this lab, I rewired my car to make the electronics mor
 
 In addition, before I started to implement a PID controller, I had to make sure I had a good debugging system. In order to do this, I first created a new python script to allow the car to be controlled via Bluetooth. In python, I also edited my notification handler to receive the time, distance, and speed (PWM value) debugging data that would be collected from the robot. The data arrays were constrained to a length of 500 in Arduino to make sure the Artemis's internal RAM storage would not be surpassed.
 
-To make my life easier when testing the robot, I implemented certain commands in Arduino, including EDIT_GAINS and CLEAR_ARRAYS. Both are shown below.
+To make my life easier when testing the robot, I implemented certain commands in Arduino, including EDIT_GAINS and CLEAR_ARRAYS. Both are shown below. The former allowed me to easily change the values of Kp, Ki, and Kd using a Bluetooth command. This made testing much easier, as I did not have to reupload new code each time I wanted to try new gain values. The latter cleared the values stored in the time, distance, and speed arrays. This was useful for tests when the robot did not run for long enough to record 500 values, as it prevented values from previous tests from being sent back to python for analysis. 
 
 *** EDIT_GAINS AND CLEAR_ARRAYS CODE ***
-...
 
-## Task...
+To have the robot start and stop as a result of Bluetooth input, I added a flag, PID_RUNNING. When PID_RUNNING is true, the code will execute, and the robot will begin to move using the PID controller. But, when the flag is false, the robot will be stationary. I implemented two commands in Arduino, BEGIN_PID and STOP_PID, shown below, which turn the flag on and off as a result of Bluetooth input. This made it very easy to control different test cases. 
 
-At first, to test P control, I had a hard stop implemented. Using this method I got the robot to hit the wall gently, and reverse to approximately 1 ft from the wall, then stop. 
+*** BEGIN_PID AND STOP_PID CODE ***
 
-*** ADD VIDEO IN BELOW *** 
+## P Controller 
 
-The K value that worked the best was 0.15. The cause of the hard stop was the arduino code shown below
+Initially, I just tested proportional control to make sure that my code functioned properly. For simplicity, I also had a hard stop implemented, which had the robot stop if the calculated PWM value was between -10 and 10, as seen in the code below. This hard stop operated under the assumption that the robot should be close to the desired distane of 1 foot from the wall if when a PWM value this low is calculated.
 
-*** ADD IN CODE ***
+*** HARDSTOP CODE ***
+
+Using this method, I was able to obtain the result shown below, where the robot hit the wall gently, reversed to approximately 1 foot, and then stopped. The Kp value used in this test was 0.15.
+
+*** ADD VIDEO OF HARDSTOP P CONTROL *** 
 
 The distance and speed graphs that resulted from the addition of a hardstop at Kp = 0.15 can be seen below
 
