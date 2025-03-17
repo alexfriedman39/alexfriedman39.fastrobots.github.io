@@ -2,8 +2,11 @@
 
 ## Prelab
 
-To make sure I had a good debugging system, 
+First, before starting on this lab, I rewired my car to make the electronics more compact. I made sure to keep the connections the same as before, but I cut the wires down significantly and organized them so that the motor drivers, arduino, and battery fit in the back of the car. I placed the TOF sensors on the front and back of the car, and placed the IMU at the front of the car on top. An image of the final version is shown below.
 
+*** FINAL WIRING OF CAR PHOTO *** 
+
+In addition, before I started to implement a PID controller, I had to make sure I had a good debugging system. In order to do this, I first created a new python script to allow the car to be controlled via Bluetooth. I implemented corresponding commands in Arduino, including ...
 
 ## Task...
 
