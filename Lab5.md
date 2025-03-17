@@ -26,11 +26,15 @@ Using this method, I was able to obtain the result shown below, where the robot 
 
 *** ADD VIDEO OF HARDSTOP P CONTROL *** 
 
-The distance and speed graphs that resulted from the addition of a hardstop at Kp = 0.15 can be seen below
+The distance and speed graphs that resulted from this P control trial, where Kp = 0.15 can be seen below.
 
-*** ADD IN GRAPHS ***
+*** ADD IN GRAPHS OF HARDSTOP P CONTROL ***
 
-As you can see, the robot did not oscillate, and instead stopped not exactly at 1 ft from the wall. 
+As you can see from the graphs above, the robot stopped at about 1 foot from the wall. However, we ideally want to see the robot stop at exactly 1 foot, or oscillate about that point. In order to get these oscillations, I commented out the code shown above that caused the hard stop. Instead, when the calculated speed (PWM values) got this low, they were adjusted so that they would be higher than the deadband PWM values found in Lab 4. The full code used to move the robot forward based on the calculated speed is shown below, which includes the deadband adjustment. 
+
+*** ADD IN DEADBAND ADJUSTMENT CODE ***
+
+Using this code, I again tested just a P controller at varying Kp values. 
 
 
 notes: 
