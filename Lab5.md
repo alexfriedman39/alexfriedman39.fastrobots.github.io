@@ -34,6 +34,7 @@ then need to:
 - figure out how to document linear speed
   - not in the task list tho
 - record frequency
+  - found for K controller, got approx 16.5 samples/second for dist measurements (just gotten from one sample, didn't look at others)
   - refer to stefan's
 - change code so that new speed is calculated even when distance sensor doesn't update
   - should result in faster frequency
