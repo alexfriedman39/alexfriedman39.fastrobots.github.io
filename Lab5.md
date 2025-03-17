@@ -27,6 +27,7 @@ notes:
 have videos of P controller and varying Kp values
 
 first implement integral and derivative control to get PID
+- done, have code in place that calculates speed using integration and derivation
 
 then need to:
 - test results from varying distances (2-4 m?)
@@ -38,3 +39,7 @@ then need to:
   - refer to stefan's
 - change code so that new speed is calculated even when distance sensor doesn't update
   - should result in faster frequency
+  - compare this to before
+- use extrapolation to calculate derivative control
+  - use else if for when distance sensor data is NOT ready
+  - see eqn in Mikayla's code
