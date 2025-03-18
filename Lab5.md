@@ -102,7 +102,7 @@ When testing integral control, I quickly realized I needed windup protection. Ev
 In order to implement wind-up protection, I added the following constraints, seen in the image below, into my speed (PWM value) calculation. Initally, I constrained the integrator term that contributes to the PWM value to positive or negative 100. However, once the robot moved halfway to the wall, I reduced this constraint to positive or negative 20. Otherwise, the robot would not slow down quickly enough to prevent it from running into the wall. 
 
 <p align="center">
-<img width="400" src="photos/Lab5/Windup_Protect_Code.jpeg">
+<img width="400" src="photos/Lab5/Windup_Protect_Code.png">
 </p>
 <br>
 
@@ -111,7 +111,7 @@ In order to implement wind-up protection, I added the following constraints, see
 In addition, we were tasked with decoupling PID control from the TOF sensor. I did this by moving my variable initializations, calculations, and array storage out of TOF loop. In order to make sure that calculations would not occur before the TOF recorded it's first value, though, I created the flag, INIT_DIST_RECORDED. The resulting code is seen below.
 
 <p align="center">
-<img width="400" src="photos/Lab5/Decoupled_code.jpeg">
+<img width="400" src="photos/Lab5/Decoupled_code.png">
 </p>
 <br>
 
@@ -140,7 +140,7 @@ From these plots, I obtained the maximum linear speed using these PI control gai
 Before I could start testing derivative control, I used data extrapolation to predict the distance the robot was from the wall based off the two previous measurements. Extrapolation increases accuracy as it gives an updated distance for each time PID control speed is calculated since the PID control loop executes faster than the TOF sensors. My edited code using extrapolation can be seen below. 
 
 <p align="center">
-<img width="400" src="photos/Lab5/Extrapolation_code.jpeg">
+<img width="400" src="photos/Lab5/Extrapolation_code.png">
 </p>
 <br>
 
