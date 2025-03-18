@@ -18,7 +18,11 @@ To have the robot start and stop as a result of Bluetooth input, I added a flag,
 
 ## P Controller 
 
-Initially, I just tested proportional control to make sure that my code functioned properly. For simplicity, I also had a hard stop implemented, which had the robot stop if the calculated PWM value was between -10 and 10, as seen in the code below. This hard stop operated under the assumption that the robot should be close to the desired distane of 1 foot from the wall if when a PWM value this low is calculated.
+Initially, I just tested proportional control to make sure that my code functioned properly. 
+
+*** ADD IN P CONTROL SPEED CALC??***
+
+For simplicity, I also had a hard stop implemented, which had the robot stop if the calculated PWM value was between -10 and 10, as seen in the code below. This hard stop operated under the assumption that the robot should be close to the desired distane of 1 foot from the wall if when a PWM value this low is calculated.
 
 *** HARDSTOP CODE ***
 
@@ -46,8 +50,15 @@ In order to reduce overshoot, I again reduced the Kp value slightly, to 0.07. Th
 
 *** ADD IN VIDEO FOR KP = 0.07 AND CORRESPONDING GRAPHS ***
 
-## PI Control 
+## PID Control 
 
+Once I obtained ideal proportional gain behavior, I changed my code to incorporate both integral and derivative control when calculating the speed of my car. The corresponding Arduino code can be seen below. 
+
+*** ADD PID SPEED CALC (NO WINDUP PROTECTION) CODE ***
+
+I quickly realized I needed windup protection, as even at extremely low Ki values, the robot would not slow down as it neared an object. My test for this can be seen in the video below. To prevent damage to my TOF sensor, I held onto the car as I neared the wall, which showed no sign of slowing down. 
+
+*** ADD VIDEO DEMONSTRATING WHY WE NEED WINDUP PROTECTION ***
 overshoot seen at this gain was 
 
 for the videos/graphs i have for Kp = 0.008 and Ki = 0.000001, note that car continued to 1 ft but only 500 data points were collected
