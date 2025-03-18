@@ -66,7 +66,13 @@ In order to implement wind-up protection, I added the following constraints, see
 
 *** WINDUP PROTECTION ARDUINO CODE ***
 
-In addition, we were tasked with 
+In addition, we were tasked with decoupling PID control from the TOF sensor. I did this by moving my variable initializations, calculations, and array storage out of TOF loop. In order to make sure that calculations would not occur before the TOF recorded it's first value, though, I created the flag, INIT_DIST_RECORDED. The resulting code is seen below.
+
+*** ADD DECOUPLED CODE *** 
+
+Once the PID control was decoupled from the TOF loop, the frequency was much higher, at approximately 65 Hz. This is approximately quadruple the frequency of the TOF sensor readings. 
+
+After decoupling, I started testing PI control. After trying a variety of Ki values, I found that 
 
 After testing a variety of Ki values, I found that 
 
