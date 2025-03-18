@@ -18,11 +18,11 @@ To have the robot start and stop as a result of Bluetooth input, I added a flag,
 
 ## P Controller 
 
-Initially, I just tested proportional control to make sure that my code functioned properly. 
+Initially, I just tested proportional control to make sure that my code functioned properly. The code I used to implement proportional control is shown below. 
 
 *** ADD IN P CONTROL SPEED CALC??***
 
-*** ALSO NEED FREQUENCY ??? ****
+The loop used in this code was dependent on the TOF sensor. Therefore the frequency was quite low, hovering around approximately 16 Hz. 
 
 For simplicity, I also had a hard stop implemented, which had the robot stop if the calculated PWM value was between -10 and 10, as seen in the code below. This hard stop operated under the assumption that the robot should be close to the desired distane of 1 foot from the wall if when a PWM value this low is calculated.
 
@@ -96,71 +96,25 @@ Before I could start testing derivative control, I used data extrapolation to pr
 
 Each time the TOF sensor records a new value, x2 and t2 are set to x1 and t1, respectively. Then, x1 and t1 are updated to the current values. Then, when the sensor is not ready to measure a new value, an estimated distance can be calculated using the extrapolation equation. 
 
-*** PLOT ACTUAL V EXTRAPOLATED DATA IF YOU GET TIME ***
-
 ### PD Control Testing
-After implementing extrapolation, I tested my PD control on my robot. I kept Ki = 0.07, the same as before, and tested Kd at 1, 2, and 3. I decided that a Kd value of 2 performed the best of the three. This was because it had an overshoot value smaller than Kd = 1, and its data was less noisy than that of Kd = 3. The video and corresponding graphs of PD control for Ki = 0.07 and Kd = 2 can be seen below.
+After implementing extrapolation, I tested my PD control on my robot. I kept Ki = 0.07, the same as before, and tested Kd at 1, 2, and 3. I decided that a Kd value of 2 performed the best of the three. This was because it had a smaller overshoot value than Kd = 1, and its data was less noisy than that of Kd = 3. The video and corresponding graphs of PD control for Ki = 0.07 and Kd = 2 can be seen below.
 
 *** PD Control Video AND graphs ***
 
+During testing, I did not add anything into my code to combat derivative kick. Since the enviroment I was testing is was very stable, there were not any unexpected inputs that could translate to an unstable output. However, in future labs it would be beneficial to add something to combat derivative kick as I will likely be testing in more unpredictable environments. 
+
 ### PID Control Testing
-Once I found an ideal Kd value, I decided to test my robot with PID control. I first tested with Kp = 0.07, Ki = 5E-7, and Kd = 3. The corresponding video and graphs can be seen below.
+Once I found an ideal Kd value, I decided to test my robot with PID control. When choosing gains, I kept Kp the same as before, 0.07, but I varied Ki within the range of 1E-6 and 1E-5 and Kd from 2 to 5. From my tests I found that the best PID controller had gains of Kp = 0.07, Ki = 7E-6, and Kd = 4. As seen in the graphs below, these gains resulted in a small overshoot, rapid decay, and very minimal steady state error. 
 
-*** FIRST PID VIDEO AND GRAPHS ***
-
-For this test, the overshoot was quite large, and the robot did not reach a steady state error of 0. The oscillations did decay pretty rapidly, but too soon, since the robot did not reach its desired position. To readjust, I increased Kd to 5 in order to reduce the overshoot. The results are shown below. 
-
-*** SECOND PID VIDEO AND GRAPHS ***
-
-The overshoot did decrease slightly with an increased Kd. However, the steady state error actually increased. 
-
-It appeared that my integrator term was interfering with the overall results to a greater extent than desired, even with my integrator wind-up protection applied. As a result, since my PD control worked the best, going forward my analysis will just be with PD control.
+*** DESIRED PID VIDEO AND GRAPHS ***
 
 ### Changing Conditions
+In order to show that my PD control was robust, I tested it at 1, 2, and 3 meters from the wall. In order to test at these distances, I first set the TOF sensor to the long distance mode. For all 3 tests, the gains were set to Kp = 0.07, Ki = 7E-6, and Kd = 4, the same as in the PID controller found above. Videos for all 3 tests are displayed below. I attempted to test at 4 meters as well, but the test failed, likely because the sensor could not adequately detect the wall, even in the long distance mode. 
 
-In order to show that my PD control was robust, I tested it at 1, 2, and 3 meters from the wall. In order to test at these distances, I first set the TOF sensor to the long distance mode. For all 3 tests, the gains were set to Ki = 0.07 and Kd = 2. 
-
-
-changed to long distance mode to do 1, 2, and 3 meter tests
-- results show consistent PD control
-- Ki = 0.07 and Kd = 2
+*** VIDEOS FOR 1, 2, AND 3 METERS ***
 
 ### 5000 Level - Wind-Up Protection
-point to my implementation above
-need to add discussion of why it is necessary, though, here
+As shown above, I had to implement wind-up protection. This is necessary because unlike the proportional or derivative control terms, the integral term compounds over time. Therefore, it is easy for the term to spiral out of control, especially as more time goes on. This is especially bad in the scenario we are testing, since as time goes on, we approach the wall, and desire a smaller term to calculate speed, not one that continually increases. See my section above for more information about how, exactly, I implemented protection. 
 
 ### Acknowledgements
-mikayla - wind up protection
-stefan - PID implementation
-
-notes: 
-
-have videos of P controller and varying Kp values
-
-first implement integral and derivative control to get PID
-- done, have code in place that calculates speed using integration and derivation
-
-integral windup 
-- have video where I showed that it would not slow down as it got near a wall
-- made it so that integral value contribution did not exceed a certain speed, especially as we neared the wall
-- values too low did not reach the desired foot marker
-  - maybe retest this since I have since increased the backwards minimum speed to account for bad wheels 
-
-then need to:
-- change code so that new speed is calculated even when distance sensor doesn't update
-  - should result in faster frequency
-  - compare this to before
-  - I just did this, see screenshots for before and after
-- record frequency
-  - found for K controller, got approx 16.5 samples/second for dist measurements (just gotten from one sample, didn't look at others)
-  - refer to stefan's
-  - got approx 65 Hz after changing it
-- test results from varying distances (2-4 m?)
-  - requires you to change to long distance mode to go from these distances
-- figure out how to document linear speed???
-  - not in the task list tho
-  - they wanted THREE repeated videos to demonstrate reliability 
-- use extrapolation to calculate derivative control
-  - use else if for when distance sensor data is NOT ready
-  - see eqn in Mikayla's code
-  - do we need to do LPF/derivative kick??
+I refered to Stefan's website in order to better understand how to combine proportional, integrator, and derivative control terms. I also refered to Mikayla's website for more information on wind up protection implementation and extrapolation. 
