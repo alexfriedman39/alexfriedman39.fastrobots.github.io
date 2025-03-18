@@ -22,6 +22,8 @@ Initially, I just tested proportional control to make sure that my code function
 
 *** ADD IN P CONTROL SPEED CALC??***
 
+*** ALSO NEED FREQUENCY ??? ****
+
 For simplicity, I also had a hard stop implemented, which had the robot stop if the calculated PWM value was between -10 and 10, as seen in the code below. This hard stop operated under the assumption that the robot should be close to the desired distane of 1 foot from the wall if when a PWM value this low is calculated.
 
 *** HARDSTOP CODE ***
@@ -56,13 +58,30 @@ Once I obtained ideal proportional gain behavior, I changed my code to incorpora
 
 *** ADD PID SPEED CALC (NO WINDUP PROTECTION) CODE ***
 
-I quickly realized I needed windup protection, as even at extremely low Ki values, the robot would not slow down as it neared an object. My test for this can be seen in the video below. To prevent damage to my TOF sensor, I held onto the car as I neared the wall, which showed no sign of slowing down. 
+I quickly realized I needed windup protection, as even at extremely low Ki values, the robot would not slow down as it neared an object. My test for this can be seen in the video below. To prevent damage to my TOF sensor, I held onto the car as it neared the wall, since it would have hit the wall at a high speed if released.
 
 *** ADD VIDEO DEMONSTRATING WHY WE NEED WINDUP PROTECTION ***
+
+In order to implement wind-up protection, I added the following constraints, seen in the image below, into my speed (PWM value) calculation. Initally, I constrained the integrator term that contributes to the PWM value to positive or negative 100. However, once the robot moved halfway to the wall, I reduced this constraint to positive or negative 20. Otherwise, the robot would not slow down quickly enough to prevent it from running into the wall. 
+
+*** WINDUP PROTECTION ARDUINO CODE ***
+
+In addition, we were tasked with 
+
+After testing a variety of Ki values, I found that 
+
 overshoot seen at this gain was 
 
 for the videos/graphs i have for Kp = 0.008 and Ki = 0.000001, note that car continued to 1 ft but only 500 data points were collected
 ->after, changed it to record 1000 since now a higher frequency requires more storage in order to see full car behavior
+
+### 5000 Level - Wind-Up Protection
+point to my implementation above
+need to add discussion of why it is necessary, though, here
+
+### Acknowledgements
+mikayla - wind up protection
+stefan - PID implementation
 
 notes: 
 
