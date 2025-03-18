@@ -124,7 +124,6 @@ After decoupling, I started testing PI control. After trying a variety of Ki val
 
 I combined the distance and speed data for all 3 trials into the graphs shown below. The first trial had the best performance, both in terms of overshoot and steady state error. This is likely because the battery was fully charged during this trial. The second and third trials had a slightly larger overshoot, but both eventually reached the ideal distance. The difference in end behavior, especially with regard to the amplitude of oscillations, demonstrates the importance of using a fully charged battery whenever possible. 
 
-*** COMBINED PLOTS FOR ALL 3 TRIALS *** 
 <p align="center">
 <img width="400" src="photos/Lab5/PI_total_dist.png"> <img width="400" src="photos/Lab5/PI_total_speed.png">
 </p>
