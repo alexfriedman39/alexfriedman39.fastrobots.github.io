@@ -25,7 +25,7 @@ To have the robot start and stop as a result of Bluetooth input, I added a flag,
 </p>
 <br>
 
-## P Controller 
+## P Control
 
 Initially, I just tested proportional control to make sure that my code functioned properly. The code I used to implement proportional control is shown below. 
 
