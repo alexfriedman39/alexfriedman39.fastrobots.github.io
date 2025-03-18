@@ -54,12 +54,12 @@ In order to reduce overshoot, I again reduced the Kp value slightly, to 0.07. Th
 
 ## PID Control 
 
-Once I obtained ideal proportional gain behavior, I changed my code to incorporate both integral and derivative control when calculating the speed of my car. The corresponding Arduino code can be seen below. 
+Once I obtained ideal proportional gain behavior, I changed my code to incorporate both integral and derivative control when calculating the speed of my car. The corresponding Arduino code can be seen below. Adding integral control should reduce steady state error and derivative control will reduce overshoot. 
 
 *** ADD PID SPEED CALC (NO WINDUP PROTECTION) CODE ***
 
-### Adding Integral Control 
-I quickly realized I needed windup protection, as even at extremely low Ki values, the robot would not slow down as it neared an object. My test for this can be seen in the video below. To prevent damage to my TOF sensor, I held onto the car as it neared the wall, since it would have hit the wall at a high speed if released.
+### Wind-Up Protection
+When testing integral control, I quickly realized I needed windup protection. Even at extremely low Ki values, the robot would not slow down as it neared an object. My test for this can be seen in the video below. To prevent damage to my TOF sensor, I held onto the car as it neared the wall, since it would have hit the wall at a high speed if released.
 
 *** ADD VIDEO DEMONSTRATING WHY WE NEED WINDUP PROTECTION ***
 
@@ -67,13 +67,16 @@ In order to implement wind-up protection, I added the following constraints, see
 
 *** WINDUP PROTECTION ARDUINO CODE ***
 
+### Decoupling PID Control from TOF Sensor
+
 In addition, we were tasked with decoupling PID control from the TOF sensor. I did this by moving my variable initializations, calculations, and array storage out of TOF loop. In order to make sure that calculations would not occur before the TOF recorded it's first value, though, I created the flag, INIT_DIST_RECORDED. The resulting code is seen below.
 
 *** ADD DECOUPLED CODE *** 
 
 Once the PID control was decoupled from the TOF loop, the frequency was much higher, at approximately 65 Hz. This is approximately quadruple the frequency of the TOF sensor readings. 
 
-After decoupling, I started testing PI control. After trying a variety of Ki values, I found that my robot performed best at gains of Kp = 0.07 and Ki = 1E6. To show that these gains had the best performance, I conducted 3 repeated trials. The videos for these trials are shown below.
+### PI Control Testing
+After decoupling, I started testing PI control. After trying a variety of Ki values, I found that my robot performed best at gains of Kp = 0.07 and Ki = 1E-6. To show that these gains had the best performance, I conducted 3 repeated trials. The videos for these trials are shown below.
 
 *** VIDEOS FOR 3 REPEATED TRIALS *** 
 
@@ -81,23 +84,42 @@ I combined the distance and speed data for all 3 trials into the graphs shown be
 
 *** COMBINED PLOTS FOR ALL 3 TRIALS *** 
 
+### Linear Speed 
 From these plots, I obtained the maximum linear speed using these PI control gains. I found the slope of distance from 1 to 2 seconds, and got 634,
 893, and 933 m/s for the respective trials. This gives an average linear speed of 820 for this PI control with Kp = 0.07 and Ki = 1E6.
 
-### Adding Derivative Control 
+### Extrapolation
 
+Before I could start testing derivative control, I used data extrapolation to predict the distance the robot was from the wall based off the two previous measurements. Extrapolation increases accuracy as it gives an updated distance for each time PID control speed is calculated since the PID control loop executes faster than the TOF sensors. My edited code using extrapolation can be seen below. 
 
+*** EXTRAPOLATION CODE ***
 
+Each time the TOF sensor records a new value, x2 and t2 are set to x1 and t1, respectively. Then, x1 and t1 are updated to the current values. Then, when the sensor is not ready to measure a new value, an estimated distance can be calculated using the extrapolation equation. 
 
-After testing a variety of Ki values, I found that 
+*** PLOT ACTUAL V EXTRAPOLATED DATA IF YOU GET TIME ***
 
-overshoot seen at this gain was 
+### PD Control Testing
+After implementing extrapolation, I tested my PD control on my robot. I kept Ki = 0.07, the same as before, and tested Kd at 1, 2, and 3. I decided that a Kd value of 2 performed the best of the three. This was because it had an overshoot value smaller than Kd = 1, and its data was less noisy than that of Kd = 3. The video and corresponding graphs of PD control for Ki = 0.07 and Kd = 2 can be seen below.
 
-for the videos/graphs i have for Kp = 0.008 and Ki = 0.000001, note that car continued to 1 ft but only 500 data points were collected
-->after, changed it to record 1000 since now a higher frequency requires more storage in order to see full car behavior
+*** PD Control Video AND graphs ***
 
-PD controller seemed to work better than PID
-- integrator windup protection did not seem to make it better for whatever reason, going forward with my analysis will just be PD
+### PID Control Testing
+Once I found an ideal Kd value, I decided to test my robot with PID control. I first tested with Kp = 0.07, Ki = 5E-7, and Kd = 3. The corresponding video and graphs can be seen below.
+
+*** FIRST PID VIDEO AND GRAPHS ***
+
+For this test, the overshoot was quite large, and the robot did not reach a steady state error of 0. The oscillations did decay pretty rapidly, but too soon, since the robot did not reach its desired position. To readjust, I increased Kd to 5 in order to reduce the overshoot. The results are shown below. 
+
+*** SECOND PID VIDEO AND GRAPHS ***
+
+The overshoot did decrease slightly with an increased Kd. However, the steady state error actually increased. 
+
+It appeared that my integrator term was interfering with the overall results to a greater extent than desired, even with my integrator wind-up protection applied. As a result, since my PD control worked the best, going forward my analysis will just be with PD control.
+
+### Changing Conditions
+
+In order to show that my PD control was robust, I tested it at 1, 2, and 3 meters from the wall. In order to test at these distances, I first set the TOF sensor to the long distance mode. For all 3 tests, the gains were set to Ki = 0.07 and Kd = 2. 
+
 
 changed to long distance mode to do 1, 2, and 3 meter tests
 - results show consistent PD control
