@@ -34,7 +34,21 @@ As you can see from the graphs above, the robot stopped at about 1 foot from the
 
 *** ADD IN DEADBAND ADJUSTMENT CODE ***
 
-Using this code, I again tested just a P controller at varying Kp values. 
+Using this code, I again tested just a P controller at varying Kp values. I first tested Kp = 0.15 to see how the robot behavior would change with no hard stop. The video and corresponding speed and distance graphs are shown below. This value was too high, as the robot initially collided with the wall. However, it was able to reach a distance from the wall of 1 foot. Since there was no hard stop, it oscillated about this distance. 
+
+*** ADD IN VIDEO FOR KP = .15 AND CORRESPONDING GRAPHS ***
+
+I next tested Kp = 0.10, which did a better job than 0.15, as it prevented the robot from hitting the wall. It also allowed the robot to return back to the desired distance of 1 foot. However, the overshoot that resulted from this gain was still quite large. The corresponding videos and graphs can be seen below. 
+
+*** ADD IN VIDEO FOR KP = .1 AND CORRESPONDING GRAPHS ***
+
+In order to reduce overshoot, I again reduced the Kp value slightly, to 0.07. The resulting video and graphs are shown below. Reducing the gain was able to reduce overshoot, but the tradeoff was that robot speed as it advances towards the wall decreased. But, it was able to reach the desired distance just as effectively as the previous gains tested. As a result, when advancing to testing a PI controller, I kept Kp between 0.7-0.8 to decrease speed and keep the overshoot small.
+
+*** ADD IN VIDEO FOR KP = 0.07 AND CORRESPONDING GRAPHS ***
+
+## PI Control 
+
+overshoot seen at this gain was 
 
 for the videos/graphs i have for Kp = 0.008 and Ki = 0.000001, note that car continued to 1 ft but only 500 data points were collected
 ->after, changed it to record 1000 since now a higher frequency requires more storage in order to see full car behavior
