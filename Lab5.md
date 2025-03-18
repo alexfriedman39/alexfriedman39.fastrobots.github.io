@@ -58,6 +58,7 @@ Once I obtained ideal proportional gain behavior, I changed my code to incorpora
 
 *** ADD PID SPEED CALC (NO WINDUP PROTECTION) CODE ***
 
+### Adding Integral Control 
 I quickly realized I needed windup protection, as even at extremely low Ki values, the robot would not slow down as it neared an object. My test for this can be seen in the video below. To prevent damage to my TOF sensor, I held onto the car as it neared the wall, since it would have hit the wall at a high speed if released.
 
 *** ADD VIDEO DEMONSTRATING WHY WE NEED WINDUP PROTECTION ***
@@ -72,7 +73,21 @@ In addition, we were tasked with decoupling PID control from the TOF sensor. I d
 
 Once the PID control was decoupled from the TOF loop, the frequency was much higher, at approximately 65 Hz. This is approximately quadruple the frequency of the TOF sensor readings. 
 
-After decoupling, I started testing PI control. After trying a variety of Ki values, I found that 
+After decoupling, I started testing PI control. After trying a variety of Ki values, I found that my robot performed best at gains of Kp = 0.07 and Ki = 1E6. To show that these gains had the best performance, I conducted 3 repeated trials. The videos for these trials are shown below.
+
+*** VIDEOS FOR 3 REPEATED TRIALS *** 
+
+I combined the distance and speed data for all 3 trials into the graphs shown below. The first trial had the best performance, both in terms of overshoot and steady state error. This is likely because the battery was fully charged during this trial. The second and third trials had a slightly larger overshoot, but both eventually reached the ideal distance. The difference in end behavior, especially with regard to the amplitude of oscillations, demonstrates the importance of using a fully charged battery whenever possible. 
+
+*** COMBINED PLOTS FOR ALL 3 TRIALS *** 
+
+From these plots, I obtained the maximum linear speed using these PI control gains. I found the slope of distance from 1 to 2 seconds, and got 634,
+893, and 933 m/s for the respective trials. This gives an average linear speed of 820 for this PI control with Kp = 0.07 and Ki = 1E6.
+
+### Adding Derivative Control 
+
+
+
 
 After testing a variety of Ki values, I found that 
 
@@ -80,6 +95,9 @@ overshoot seen at this gain was
 
 for the videos/graphs i have for Kp = 0.008 and Ki = 0.000001, note that car continued to 1 ft but only 500 data points were collected
 ->after, changed it to record 1000 since now a higher frequency requires more storage in order to see full car behavior
+
+PD controller seemed to work better than PID
+- integrator windup protection did not seem to make it better for whatever reason, going forward with my analysis will just be PD
 
 ### 5000 Level - Wind-Up Protection
 point to my implementation above
