@@ -45,7 +45,10 @@ For simplicity, I also had a hard stop implemented, which had the robot stop if 
 
 Using this method, I was able to obtain the result shown below, where the robot hit the wall gently, reversed to approximately 1 foot, and then stopped. The Kp value used in this test was 0.15.
 
-*** ADD VIDEO OF HARDSTOP P CONTROL *** 
+<p align="center">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/tM1ucQZC2Hg?si=dLjQRBoM-p7jrFUG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</p>
+<br>
 
 The distance and speed graphs that resulted from this P control trial, where Kp = 0.15 can be seen below.
 
@@ -63,7 +66,11 @@ As you can see from the graphs above, the robot stopped at about 1 foot from the
 
 Using this code, I again tested just a P controller at varying Kp values. I first tested Kp = 0.15 to see how the robot behavior would change with no hard stop. The video and corresponding speed and distance graphs are shown below. This value was too high, as the robot initially collided with the wall. However, it was able to reach a distance from the wall of 1 foot. Since there was no hard stop, it oscillated about this distance. 
 
-*** ADD IN VIDEO FOR KP = .15 AND CORRESPONDING GRAPHS ***
+<p align="center">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/BH6akWeaKUc?si=4G1XFDiy-QzJo4nh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</p>
+<br>
+
 <p align="center">
 <img width="400" src="photos/Lab5/Kp_.15_dist.png"> <img width="400" src="photos/Lab5/Kp_.15_speed.png">
 </p>
@@ -71,7 +78,11 @@ Using this code, I again tested just a P controller at varying Kp values. I firs
 
 I next tested Kp = 0.10, which did a better job than 0.15, as it prevented the robot from hitting the wall. It also allowed the robot to return back to the desired distance of 1 foot. However, the overshoot that resulted from this gain was still quite large. The corresponding videos and graphs can be seen below. 
 
-*** ADD IN VIDEO FOR KP = .1 AND CORRESPONDING GRAPHS ***
+<p align="center">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/iEHJlPoOCy0?si=xoBR856taTyWCgxg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</p>
+<br>
+
 <p align="center">
 <img width="400" src="photos/Lab5/Kp_.1_dist.png"> <img width="400" src="photos/Lab5/Kp_.1_speed.png">
 </p>
@@ -79,7 +90,11 @@ I next tested Kp = 0.10, which did a better job than 0.15, as it prevented the r
 
 In order to reduce overshoot, I again reduced the Kp value slightly, to 0.07. The resulting video and graphs are shown below. Reducing the gain was able to reduce overshoot, but the tradeoff was that robot speed as it advances towards the wall decreased. But, it was able to reach the desired distance just as effectively as the previous gains tested. As a result, when advancing to testing a PI, and later PID, controller, I kept Kp at 0.07 to keep speed at a reasonable pace, which in turn helped keep the overshoot small.
 
-*** ADD IN VIDEO FOR KP = 0.07 AND CORRESPONDING GRAPHS ***
+<p align="center">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/KSF7wc3_DXs?si=ITOf6dEskeeOQLhX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</p>
+<br>
+
 <p align="center">
 <img width="400" src="photos/Lab5/Kp_.07_dist.png"> <img width="400" src="photos/Lab5/Kp_.07_speed.png">
 </p>
@@ -97,7 +112,10 @@ Once I obtained ideal proportional gain behavior, I changed my code to incorpora
 ### Wind-Up Protection
 When testing integral control, I quickly realized I needed windup protection. Even at extremely low Ki values, the robot would not slow down as it neared an object. My test for this can be seen in the video below. To prevent damage to my TOF sensor, I held onto the car as it neared the wall, since it would have hit the wall at a high speed if released.
 
-*** ADD VIDEO DEMONSTRATING WHY WE NEED WINDUP PROTECTION ***
+<p align="center">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ssH3QAitcJk?si=REGwEN2zlQW6zx1c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</p>
+<br>
 
 In order to implement wind-up protection, I added the following constraints, seen in the image below, into my speed (PWM value) calculation. Initally, I constrained the integrator term that contributes to the PWM value to positive or negative 100. However, once the robot moved halfway to the wall, I reduced this constraint to positive or negative 20. Otherwise, the robot would not slow down quickly enough to prevent it from running into the wall. 
 
@@ -120,7 +138,11 @@ Once the PID control was decoupled from the TOF loop, the frequency was much hig
 ### PI Control Testing
 After decoupling, I started testing PI control. After trying a variety of Ki values, I found that my robot performed best at gains of Kp = 0.07 and Ki = 1E-6. To show that these gains had the best performance, I conducted 3 repeated trials. The videos for these trials are shown below.
 
-*** VIDEOS FOR 3 REPEATED TRIALS *** 
+<p align="center">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/d1FXtomrrt0?si=a17UX6uFxkps0nrf" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> <iframe width="560" height="315" src="https://www.youtube.com/embed/NLDBp4pWUaY?si=cWxHj_ML4zHXM7HM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</p>
+<br>
+
 
 I combined the distance and speed data for all 3 trials into the graphs shown below. The first trial had the best performance, both in terms of overshoot and steady state error. This is likely because the battery was fully charged during this trial. The second and third trials had a slightly larger overshoot, but both eventually reached the ideal distance. The difference in end behavior, especially with regard to the amplitude of oscillations, demonstrates the importance of using a fully charged battery whenever possible. 
 
