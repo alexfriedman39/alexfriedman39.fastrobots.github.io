@@ -14,7 +14,7 @@ In addition, before I started to implement a PID controller, I had to make sure 
 To make my life easier when testing the robot, I implemented certain commands in Arduino, including EDIT_GAINS and CLEAR_ARRAYS. Both are shown below. The former allowed me to easily change the values of Kp, Ki, and Kd using a Bluetooth command. This made testing much easier, as I did not have to reupload new code each time I wanted to try new gain values. The latter cleared the values stored in the time, distance, and speed arrays. This was useful for tests when the robot did not run for long enough to record 500 values, as it prevented values from previous tests from being sent back to python for analysis. 
 
 <p align="center">
-<img width="400" src="photos/Lab5/Edit_1=gains.png"> <img width="400" src="photos/Lab5/Clear_arrays.png">
+<img width="400" src="photos/Lab5/Edit_gains.png"> <img width="400" src="photos/Lab5/Clear_arrays.png">
 </p>
 <br>
 
