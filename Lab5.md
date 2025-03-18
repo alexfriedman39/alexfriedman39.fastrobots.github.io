@@ -99,6 +99,10 @@ for the videos/graphs i have for Kp = 0.008 and Ki = 0.000001, note that car con
 PD controller seemed to work better than PID
 - integrator windup protection did not seem to make it better for whatever reason, going forward with my analysis will just be PD
 
+changed to long distance mode to do 1, 2, and 3 meter tests
+- results show consistent PD control
+- Ki = 0.07 and Kd = 2
+
 ### 5000 Level - Wind-Up Protection
 point to my implementation above
 need to add discussion of why it is necessary, though, here
