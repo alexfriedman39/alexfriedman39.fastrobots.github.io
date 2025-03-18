@@ -204,6 +204,11 @@ Once I found an ideal Kd value, I decided to test my robot with PID control. Whe
 In order to show that my PD control was robust, I tested it at 1, 2, and 3 meters from the wall. In order to test at these distances, I first set the TOF sensor to the long distance mode. For all 3 tests, the gains were set to Kp = 0.07, Ki = 7E-6, and Kd = 4, the same as in the PID controller found above. Videos for all 3 tests are displayed below. I attempted to test at 4 meters as well, but the test failed, likely because the sensor could not adequately detect the wall, even in the long distance mode. 
 
 *** VIDEOS FOR 1, 2, AND 3 METERS ***
+<p align="center">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/xUbw2B1ARSk?si=K9vYwhN0KepPpvpR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/qXbqnCf_MQI?si=kEIbMgz9gtOPDWqb" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</p>
+<br>
 
 ### 5000 Level - Wind-Up Protection
 As shown above, I had to implement wind-up protection. This is necessary because unlike the proportional or derivative control terms, the integral term compounds over time. Therefore, it is easy for the term to spiral out of control, especially as more time goes on. This is especially bad in the scenario we are testing, since as time goes on, we approach the wall, and desire a smaller term to calculate speed, not one that continually increases. See my section above for more information about how, exactly, I implemented protection. 
