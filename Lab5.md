@@ -139,10 +139,14 @@ Once the PID control was decoupled from the TOF loop, the frequency was much hig
 After decoupling, I started testing PI control. After trying a variety of Ki values, I found that my robot performed best at gains of Kp = 0.07 and Ki = 1E-6. To show that these gains had the best performance, I conducted 3 repeated trials. The videos for these trials are shown below.
 
 <p align="center">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/d1FXtomrrt0?si=a17UX6uFxkps0nrf" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> <iframe width="560" height="315" src="https://www.youtube.com/embed/NLDBp4pWUaY?si=cWxHj_ML4zHXM7HM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/d1FXtomrrt0?si=a17UX6uFxkps0nrf" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> <iframe width="560" height="315" src="https://www.youtube.com/embed/NLDBp4pWUaY?si=SuIEzyUri4L2go3w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </p>
 <br>
 
+<p align="center">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/v7NFsj6As0M?si=H4SpHRWjBX9XnY5R" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</p>
+<br>
 
 I combined the distance and speed data for all 3 trials into the graphs shown below. The first trial had the best performance, both in terms of overshoot and steady state error. This is likely because the battery was fully charged during this trial. The second and third trials had a slightly larger overshoot, but both eventually reached the ideal distance. The difference in end behavior, especially with regard to the amplitude of oscillations, demonstrates the importance of using a fully charged battery whenever possible. 
 
@@ -170,7 +174,11 @@ Each time the TOF sensor records a new value, x2 and t2 are set to x1 and t1, re
 ### PD Control Testing
 After implementing extrapolation, I tested my PD control on my robot. I kept Ki = 0.07, the same as before, and tested Kd at 1, 2, and 3. I decided that a Kd value of 2 performed the best of the three. This was because it had a smaller overshoot value than Kd = 1, and its data was less noisy than that of Kd = 3. The video and corresponding graphs of PD control for Ki = 0.07 and Kd = 2 can be seen below.
 
-*** PD Control Video AND graphs ***
+<p align="center">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/clttK-9FsN8?si=2peSbq7iZ5t_7d2x" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</p>
+<br>
+
 <p align="center">
 <img width="400" src="photos/Lab5/PD_dist.png"> <img width="400" src="photos/Lab5/PD_speed.png">
 </p>
@@ -182,7 +190,11 @@ During testing, I did not add anything into my code to combat derivative kick. S
 ### PID Control Testing
 Once I found an ideal Kd value, I decided to test my robot with PID control. When choosing gains, I kept Kp the same as before, 0.07, but I varied Ki within the range of 1E-6 and 1E-5 and Kd from 2 to 5. From my tests I found that the best PID controller had gains of Kp = 0.07, Ki = 7E-6, and Kd = 4. As seen in the graphs below, these gains resulted in a small overshoot, rapid decay, and very minimal steady state error. 
 
-*** DESIRED PID VIDEO AND GRAPHS ***
+<p align="center">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/q_X8RaENkVQ?si=zawOZmOpf1Y7ptV4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</p>
+<br>
+
 <p align="center">
 <img width="400" src="photos/Lab5/PID_distance.png"> <img width="400" src="photos/Lab5/PID_speed.png">
 </p>
