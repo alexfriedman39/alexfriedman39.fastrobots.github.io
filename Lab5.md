@@ -90,7 +90,7 @@ In order to reduce overshoot, I again reduced the Kp value slightly, to 0.07. Th
 Once I obtained ideal proportional gain behavior, I changed my code to incorporate both integral and derivative control when calculating the speed of my car. The corresponding Arduino code can be seen below. Adding integral control should reduce steady state error and derivative control will reduce overshoot. 
 
 <p align="center">
-<img width="400" src="photos/Lab5/PID_speedcalc_noprotec.jpeg">
+<img width="400" src="photos/Lab5/PID_speedcalc_noprotec.png">
 </p>
 <br>
 
