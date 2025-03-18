@@ -163,7 +163,7 @@ Once I found an ideal Kd value, I decided to test my robot with PID control. Whe
 
 *** DESIRED PID VIDEO AND GRAPHS ***
 <p align="center">
-<img width="400" src="photos/Lab5/PID_dist.png"> <img width="400" src="photos/Lab5/PID_speed.png">
+<img width="400" src="photos/Lab5/PID_distance.png"> <img width="400" src="photos/Lab5/PID_speed.png">
 </p>
 <br>
 
