@@ -12,3 +12,5 @@ then, opened example Example7_DMP_Quat6_EulerAngles, and added the setup code to
 
 the example also had code that I used as an example to implement DMP functionality in my main loop
 
+also had to add in a function to convert from quaternion angles to yaw, used example code from Wikepedia link on class handout
+
