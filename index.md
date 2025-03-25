@@ -14,3 +14,4 @@ Below you will find an updated account of the work I have done so far this semes
 - [Lab 4: Motor Drivers and Open Loop Control](/Lab4.md)
 - [Lab 5: Linear PID Control and Linear Interpolation](/Lab5.md)
 - [Lab 6: Orientation Control](/Lab6.md)
+- [Lab 7: Kalman Filter](/Lab7.md)
