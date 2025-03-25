@@ -30,6 +30,8 @@ At first, I tested proportional control
 
 need to change code so that windup isn't quite as prevalent when Ki is increased 
 
+decided not to use derivative control because the overshoot wasn't a problem (very small)
+
 see screenshots of plots to calculate frequency, can compare to distance sensor frequency
 approx 14 samples/second
 
