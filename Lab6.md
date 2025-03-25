@@ -31,6 +31,7 @@ At first, I tested proportional control
 need to change code so that windup isn't quite as prevalent when Ki is increased 
 
 see screenshots of plots to calculate frequency, can compare to distance sensor frequency
+approx 14 samples/second
 
 5000 level - wind up implementation and discussion 
 
