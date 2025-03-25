@@ -1,4 +1,4 @@
-# Lab 6: Orientation Control 
+# Lab 6: Kalman Filter 
 
 ## Task 1: Estimate Drag and Momentum 
 
