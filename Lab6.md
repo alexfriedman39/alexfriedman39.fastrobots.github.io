@@ -125,4 +125,4 @@ This prevented the robot from reaching zero steady state error, even when the Ki
 
 ### Acknowledgements: 
 
-I referenced Lulu's solution from this semester in order to better understand how to incorporate the DMP code into ble code. In addition, as mentioned above I took DMP code from the handout linked in Lab 6 and I referenced the Wikipedia code when creating my function to convert from quaternions to yaw angle. 
+I referenced Lulu's solution from this semester in order to better understand how to incorporate the DMP code into my ble code. In addition, as mentioned above, I took DMP code from the handout linked in Lab 6. When creating my function to convert from quaternions to yaw angle, I also referenced the Wikipedia example code linked in the handout. 
