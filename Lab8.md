@@ -36,6 +36,10 @@ As a result, the best video I have of a flip at the moment is the following clip
 
 As tragic as my night's events where, they did make for a pretty decent blooper reel compilation, which can be seen below. Make sure to turn your sound on :) 
 
+<p align="center">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/fg5IsR_bxE0?si=DBctev9gjghH2AnQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</p>
+<br>
 
 
 
