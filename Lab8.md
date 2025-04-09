@@ -6,6 +6,10 @@ I decided to perform the flip because I thought it would be more fun to implemen
 
 <p align="center">
 <img width="500" src="photos/Lab8/Flip_code_1.png"> 
+</p>
+<br>
+
+<p align="center">
 <img width="400" src="photos/Lab8/Flip_code_2.png">
 </p>
 <br>
