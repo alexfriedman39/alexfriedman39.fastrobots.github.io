@@ -5,12 +5,12 @@
 I decided to perform the flip because I thought it would be more fun to implement and it looked cooler than the drift, in my opinion. As with previous labs, I added cases that would turn a flag, FLIP_ON, true or false. When FLIP_ON was activated, the robot would perform the flip based off the code shown in the image below. The code below has the robot first move straight towards the wall at full speed until it reaches the mat, which occurs when the distance sensor read 750 mm. Then, it reverses at full speed, causing it to flip. Once flipped, the robot should continue reversing until it reaches its starting point. 
 
 <p align="center">
-<img width="500" src="photos/Lab8/Flip_code_1.png"> 
+<img width="600" src="photos/Lab8/Flip_code_1.png"> 
 </p>
 <br>
 
 <p align="center">
-<img width="500" src="photos/Lab8/Flip_code_2.png">
+<img width="450" src="photos/Lab8/Flip_code_2.png">
 </p>
 <br>
 
