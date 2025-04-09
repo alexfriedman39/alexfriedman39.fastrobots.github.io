@@ -10,7 +10,7 @@ I decided to perform the flip because I thought it would be more fun to implemen
 <br>
 
 <p align="center">
-<img width="600" src="photos/Lab8/Flip_code_2.png">
+<img width="500" src="photos/Lab8/Flip_code_2.png">
 </p>
 <br>
 
