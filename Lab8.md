@@ -16,7 +16,10 @@ I decided to perform the flip because I thought it would be more fun to implemen
 
 After completing the code, I tested my robot at home before heading to Phillips to test on the sticky mat. Since my house is carpeted, I was not able to get the robot to flip, but it stopped at the correct distance from the wall and reversed straight back to its starting point. As it was just a test, I did not record the run, but luckily I did take a screenshot of the data, which can be seen below. 
 
-*** ADD IN TEST DATA SCREENSHOT ***
+<p align="center">
+<img width="500" src="photos/Lab8/Test_graphs.png">
+</p>
+<br>
 
 Once I determined that my code worked as expected, I went to Phillips to test in an environment where a flip would be possible. Unfortunately, though, at the very beginning of my testing, I lost a wheel. My robot hit the wall at just the right angle for the plastic that connected the left rear wheel to the chassis to shear. In fact, it was so early in my testing for the night that I wasn't even recording (truly tragic because it would have made a great blooper at the very least). 
 
