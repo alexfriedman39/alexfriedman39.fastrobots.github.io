@@ -32,7 +32,28 @@ Even down a wheel, the robot was relatively stable, so I tried to see if a flip 
 </p>
 <br>
 
-Luckily, Jennie was kind enough to lend me her robot, Depresso, so that I could finish my Lab 8. I uploaded my code onto Depresso, and was able to get the flips shown below. 
+Luckily, Jennie was kind enough to lend me her robot, Depresso, so that I could finish my Lab 8. I uploaded my code onto Depresso, and was able to get the flips shown in the videos below. The first flip shown was my best stunt, as it took only **0.8 seconds** for the robot to return to its starting point after completing the flip. The second flip took slightly longer, as it took approximately 1.4 seconds to return to the starting point. 
+
+Unfortunately, the third flip shown below was a "failed" run since the robot did not make it back to the starting line. I would have performed more tests if I could, but I had to return Depresso to Jennie, and my robot was not in the proper state to do flips after I superglued the wheel back on. 
+
+### FLIP VIDEOS 
+
+<p align="center">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Pw6JLYLke70?si=G_WnB0U1M7-bKZUl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</p>
+<br>
+
+<p align="center">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/xfJk16H_ywE?si=1qGiUywl_P6Zzt7E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</p>
+<br>
+
+<p align="center">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/aLCSiGhxWRw?si=moqJtgPQmDcvpwv7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</p>
+<br>
+
+
 
 ### BLOOPER REEL
 
