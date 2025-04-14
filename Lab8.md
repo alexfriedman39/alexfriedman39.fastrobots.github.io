@@ -56,6 +56,15 @@ Unfortunately, the third flip shown below was a "failed" run since the robot did
 ### FLIP DATA 
 
 
+<p align="center">
+<img width="500" src="photos/Lab8/Flip_1_Data.png">
+</p>
+<br>
+
+<p align="center">
+<img width="500" src="photos/Lab8/Flip_Data_2.png">
+</p>
+<br>
 
 
 ### BLOOPER REEL
