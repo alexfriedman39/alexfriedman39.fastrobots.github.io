@@ -169,5 +169,42 @@ plt.title('(-3, -2)')
 </code></pre>
 </div>
 
+*** ADD IN TRANSF_EX PLOT ***
 
+As mentioned, the plot above is map of the bottom left corner of the environment, which results from transforming the distance and angle data collected at position (-3, -2). In this plot, there are a few points to indicate the left wall, many points for the bottom wall, one point along the top wall, and even some points only part way up the right side which accurately detect the square obtrusion along the bottom wall of the environment. 
 
+## Mapping
+
+After transforming data from all 4 locations, I overlaid them in one map, which can be seen below. 
+
+*** MAP (NO LINES) ***
+
+Although this map appears a bit noisy, there is still an evident pattern. This pattern becomes more obvious once the walls are drawn in on top. In addition to the map, I have also included my code which creates the lists of the lines to be imported into the simulator for Lab 10. 
+
+*** MAP W LINES ***
+
+<div style="height:200px; overflow:auto;">
+<pre><code class="language-python"
+plt.scatter(x1,y1, label = "(-3,-2)")
+plt.scatter(x2,y2, label = "(5, 3)")
+plt.scatter(x3, y3, label = "(5, -3)")
+plt.scatter(x4,y4, label = "(0,3)")
+
+lines_x = [-1.52, -0.3, -0.3, 0.2, 0.2, 1.9, 1.9, -0.2, -0.2, -1.52, -1.52, 0.6, 1.2, 1.2, 0.6, 0.6]
+lines_y = [-1.2, -1.2, -.6, -.6, -1.2, -1.2, 2.5, 2.5, 1.55, 1.55, -1.2, 0.4, 0.4, 1, 1, 0.4]
+
+plt.plot(lines_x[:11], lines_y[:11], 'b')
+plt.plot(lines_x[11:], lines_y[11:], 'b')
+
+plt.legend()
+plt.title("Line-Based Map")
+</code></pre>
+</div>
+
+### Discussion of Results 
+
+As you can see in the plot above, I drew the walls in over the data points, including the cluster in the middle right portion which results from detecting the obstruction in the middle of the map. Although I was still able to piece together the correct shape of the environment using my map, it is quite noisy. This is likely a result of the gyroscope value drift, which I touched on in depth above (second to last paragraph of control section). Shifted yaw values likely led to a poor translation into the room's reference frame which in turn resulted in noisy data. 
+
+If I had more time, I would have done additional test runs to gather more data. However, I was not able to fix my robot until lab section today, and only had limited time afterwards to test. I also had to be mindful of the other students who were trying to collect data at the same time as me. Ideally, I would have been able to do at least one test at the origin, but because there were so many students trying to test I decided to stick to the corners. 
+
+In the future, I would switch from using the gyroscope yaw values to the IMU's onboard DMP. Using the DMP instead of the gyroscope may help to reduce error between the yaw measurement and the robot's actual position in the environment. 
