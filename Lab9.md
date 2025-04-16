@@ -201,7 +201,7 @@ plt.title("Line-Based Map")
 </code></pre>
 </div>
 
-### Discussion of Results 
+### Discussion
 
 As you can see in the plot above, I drew the walls in over the data points, including the cluster in the middle right portion which results from detecting the obstruction in the middle of the map. Although I was still able to piece together the correct shape of the environment using my map, it is quite noisy. This is likely a result of the gyroscope value drift, which I touched on in depth above (second to last paragraph of control section). Shifted yaw values likely led to a poor translation into the room's reference frame which in turn resulted in noisy data. 
 
