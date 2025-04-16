@@ -16,3 +16,4 @@ Below you will find an updated account of the work I have done so far this semes
 - [Lab 6: Orientation Control](/Lab6.md)
 - [Lab 7: Kalman Filter](/Lab7.md)
 - [Lab 8: Stunts](/Lab8.md)
+- [Lab 9: Mapping](/Lab9.md)
