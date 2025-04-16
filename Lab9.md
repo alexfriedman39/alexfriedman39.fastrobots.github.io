@@ -122,7 +122,10 @@ if(RECORD_MAP)
 
 During testing, I found that the orientation PID control performed optimally when the gains were Kp = 3, Ki = 0.001, and Kd = 3. Evidence for the good performance under these conditions can be seen in the plot below. This graph shows yaw angle versus the desired angle for 3 of my mapping trials, which I will explain later in this report. The measured yaw values from these trials follow the desired angle almost exactly throughout the whole test. This shows that the orientation PID function produced PWM values that allowed the robot to rotate accurately based off its gyroscope readings. 
 
-*** ADD IN Des_v_meas PLOT ***
+<p align="center">
+<img width="500" src="photos/Lab9/Des_v_meas.png"> 
+</p>
+<br>
 
 The video embedded below shows that my robot does turn on axis, and typically stops when it completes a full 360 degree turn. 
 
@@ -137,9 +140,15 @@ I do not think my robot would have much of an issue mapping a square, empty room
 
 Once verifying that my controller worked properly, I began testing in the "world" constructed in the lab space. In total, I had 8 successful trials, one at position (0, 3), three at position (5, 3), and two at both (-3, -2) and (5, -3). The polar plots for the data collected at each position are shown below. 
 
-*** FIRST LINE: (0, 3) AND (5, 3) ***
+<p align="center">
+<img width="500" src="photos/Lab9/upper_left_polar.png"> <img width="500" src="photos/Lab9/upper_right_polar.png"> 
+</p>
+<br>
 
-*** SECOND LINE: OTHERS ***
+<p align="center">
+<img width="500" src="photos/Lab9/bottom_left_polar.png"> <img width="500" src="photos/Lab9/bottom_right_polar.png"> 
+</p>
+<br>
 
 Although not perfect, the polar plots do show results that I would expect. For example, at position (-3, -2), the robot started facing forward and proceeded to turn left. Therefore, it makes sense that the largest spike in distance is seen at 270 degrees when it is facing the far right side of the environment. In addition, the results of the (0, 3) polar plot are as expected. At this position, the robot starts facing right, so it has difficulty detecting a distance at first. But, from 90 to 180 degrees, it follows along the top wall, recording consistent distance measurements, except for spikes when it is detects the wall diagonally.
 
@@ -147,7 +156,10 @@ Although not perfect, the polar plots do show results that I would expect. For e
 
 After verifying my results, I transformed my data from the polar coordinates recorded by my sensors to the inertial reference frame of the room. I used the following equation (taken from the lecture slides) where P<sup>1</sup> was [r; 0], where r was the distance measurement and theta was its corresponding yaw value. After rotating, I also translated my data to account for the position where the data was taken. I decided against adjusting for the TOF sensor's placement on my robot since it was only a few centimeters, which would not have made much of a difference based on the scale of my map. 
 
-*** ADD IN EQN SCREENSHOT***
+<p align="center">
+<img width="500" src="photos/Lab9/Trans_eqn.png">
+</p>
+<br>
 
 After determining what equation to use, I applied it to my data using the Jupyter code shown below. I have also attached the resulting plot below the code. 
 
@@ -169,7 +181,10 @@ plt.title('(-3, -2)')
 </code></pre>
 </div>
 
-*** ADD IN TRANSF_EX PLOT ***
+<p align="center">
+<img width="500" src="photos/Lab9/Transf_ex.png"> 
+</p>
+<br>
 
 As mentioned, the plot above is map of the bottom left corner of the environment, which results from transforming the distance and angle data collected at position (-3, -2). In this plot, there are a few points to indicate the left wall, many points for the bottom wall, one point along the top wall, and even some points only part way up the right side which accurately detect the square obtrusion along the bottom wall of the environment. 
 
@@ -177,11 +192,17 @@ As mentioned, the plot above is map of the bottom left corner of the environment
 
 After transforming data from all 4 locations, I overlaid them in one map, which can be seen below. 
 
-*** MAP (NO LINES) ***
+<p align="center">
+<img width="500" src="photos/Lab9/Map_noline.png"> 
+</p>
+<br>
 
 Although this map appears a bit noisy, there is still an evident pattern. This pattern becomes more obvious once the walls are drawn in on top. In addition to the map, I have also included my code which creates the lists of the lines to be imported into the simulator for Lab 10. 
 
-*** MAP W LINES ***
+<p align="center">
+<img width="500" src="photos/Lab9/Map_lines.png"> 
+</p>
+<br>
 
 <div style="height:200px; overflow:auto;">
 <pre><code class="language-python"
