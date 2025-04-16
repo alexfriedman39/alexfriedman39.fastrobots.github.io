@@ -120,6 +120,54 @@ if(RECORD_MAP)
 </code></pre>
 </div>
 
+During testing, I found that the orientation PID control performed optimally when the gains were Kp = 3, Ki = 0.001, and Kd = 3. Evidence for the good performance under these conditions can be seen in the plot below. This graph shows yaw angle versus the desired angle for 3 of my mapping trials, which I will explain later in this report. The measured yaw values from these trials follow the desired angle almost exactly throughout the whole test. This shows that the orientation PID function produced PWM values that allowed the robot to rotate accurately based off its gyroscope readings. 
+
+*** ADD IN Des_v_meas PLOT ***
+
+The video embedded below shows that my robot does turn on axis, and typically stops when it completes a full 360 degree turn. 
+
+*** EMBED ON AXIS 360 DEGREE TURN ***
+
+However, something to note is that although my robot was able to accurately follow along with the desired yaw angles as it turned, as seen in the plot above, the IMU's calculated yaw angles were not always entirely accurate with respect to the environment. As discussed in lab 2, the gyroscope yaw has inherent noise and drift, which is likely what caused this deviation. The gyroscope started off giving accurate yaw values, but over time, once it reached approximately 150 degrees, the IMU's measurements no longer lined up with the robot's angle in the environment. For example, the robot would reach 270 degrees but it's gyroscope value would indicate that it had only turned 180 degrees. This led to over-rotation by 180 degrees for a few of my mapping trials. So, although distance values collected were accurate, their corresponding angles were occasionally shifted. This impacted my mapping results, as it was difficult to transform my data if some of the angles were incorrect. 
+
+I do not think my robot would have much of an issue mapping a square, empty room. Even if I encountered the over-rotation issue detailed above, the distance values recorded would all be consistent, so slightly shifted yaw values should not greatly impact the mapping process. 
+
+
+## Read out Distances 
+
+Once verifying that my controller worked properly, I began testing in the "world" constructed in the lab space. In total, I had 8 successful trials, one at position (0, 3), three at position (5, 3), and two at both (-3, -2) and (5, -3). The polar plots for the data collected at each position are shown below. 
+
+*** FIRST LINE: (0, 3) AND (5, 3) ***
+
+*** SECOND LINE: OTHERS ***
+
+Although not perfect, the polar plots do show results that I would expect. For example, at position (-3, -2), the robot started facing forward and proceeded to turn left. Therefore, it makes sense that the largest spike in distance is seen at 270 degrees when it is facing the far right side of the environment. In addition, the results of the (0, 3) polar plot are as expected. At this position, the robot starts facing right, so it has difficulty detecting a distance at first. But, from 90 to 180 degrees, it follows along the top wall, recording consistent distance measurements, except for spikes when it is detects the wall diagonally.
+
+## Transform Data
+
+After verifying my results, I transformed my data from the polar coordinates recorded by my sensors to the inertial reference frame of the room. I used the following equation (taken from the lecture slides) where P<sup>1</sup> was [r; 0], where r was the distance measurement and theta was its corresponding yaw value. After rotating, I also translated my data to account for the position where the data was taken. I decided against adjusting for the TOF sensor's placement on my robot since it was only a few centimeters, which would not have made much of a difference based on the scale of my map. 
+
+*** ADD IN EQN SCREENSHOT***
+
+After determining what equation to use, I applied it to my data using the Jupyter code shown below. I have also attached the resulting plot below the code. 
+
+<div style="height:200px; overflow:auto;">
+<pre><code class="language-python"
+r_pos1 = dist2[:36]
+theta_pos1 = yaw2[:36]
+y1 = []
+x1 = []
+
+for i in range (0,len(r_pos1)):
+    x = (r_pos1[i]*np.cos(np.deg2rad(theta_pos1[i]))) - (3*304.8)
+    y = (-r_pos1[i]*np.sin(np.deg2rad(theta_pos1[i]))) - (2*304.8)
+    x1.append(x/1000)
+    y1.append(y/1000)
+
+plt.scatter(x1, y1)
+plt.title('(-3, -2)')
+</code></pre>
+</div>
 
 
 
