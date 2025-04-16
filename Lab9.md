@@ -4,7 +4,7 @@
 
 In order to complete Lab 9, I decided to use orientation control. As in previous labs, I activated my mapping code through a bluetooth command that set the flag, RECORD_MAP, to true. I implemented orientation control using the IMU's gyroscope. As seen in the code included below, the robot turned in increments of 10 degrees, effectively recording a total of 36 distance measurements. Yaw angle was measured continuously in order to accurately track the robot's movement. The desired PWM value was calculated based off yaw, using the same orientation PID function from Lab 6. If the resulting PWM value was positive, the robot was directed to turn right. Otherwise, the robot would turn left. To prevent the robot from unnecessary oscillation, I also directed it to stop moving if the yaw value obtained using the gyroscope was within 2 degrees of the target angle. Once the robot had stabilized at the correct angle, a distance measurement was recorded and the desired angle was updated. 
 
-<div style="height:500px; overflow:auto;">
+<div style="height:650px; overflow:auto;">
 <pre><code class="language-cpp">
 if(RECORD_MAP)
        {
@@ -171,7 +171,7 @@ After verifying my results, I transformed my data from the polar coordinates rec
 
 After determining what equation to use, I applied it to my data using the Jupyter code shown below. I have also attached the resulting plot below the code. 
 
-<div style="height:200px; overflow:auto;">
+<div style="height:400px; overflow:auto;">
 <pre><code class="language-python"
 r_pos1 = dist2[:36]
 theta_pos1 = yaw2[:36]
