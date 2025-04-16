@@ -129,11 +129,19 @@ During testing, I found that the orientation PID control performed optimally whe
 
 The video embedded below shows that my robot does turn on axis, and typically stops when it completes a full 360 degree turn. 
 
-*** EMBED ON AXIS 360 DEGREE TURN ***
+<p align="center">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/P1vea6lum7I?si=AwDj2OanvwggY9yr" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</p>
+<br>
 
-However, something to note is that although my robot was able to accurately follow along with the desired yaw angles as it turned, as seen in the plot above, the IMU's calculated yaw angles were not always entirely accurate with respect to the environment. As discussed in lab 2, the gyroscope yaw has inherent noise and drift, which is likely what caused this deviation. The gyroscope started off giving accurate yaw values, but over time, once it reached approximately 150 degrees, the IMU's measurements no longer lined up with the robot's angle in the environment. For example, the robot would reach 270 degrees but it's gyroscope value would indicate that it had only turned 180 degrees. This led to over-rotation by 180 degrees for a few of my mapping trials. So, although distance values collected were accurate, their corresponding angles were occasionally shifted. This impacted my mapping results, as it was difficult to transform my data if some of the angles were incorrect. 
+However, something to note is that although my robot was able to accurately follow along with the desired yaw angles as it turned, as seen in the plot above, the IMU's calculated yaw angles were not always entirely accurate with respect to the environment. As discussed in lab 2, the gyroscope yaw has inherent noise and drift, which is likely what caused this deviation. The gyroscope started off giving accurate yaw values, but over time, once it reached approximately 150 degrees, the IMU's measurements no longer lined up with the robot's angle in the environment. For example, the robot would reach 270 degrees but it's gyroscope value would indicate that it had only turned 180 degrees. This led to over-rotation by approximatley 180 degrees for a few of my mapping trials. An example of this behavior can be seen in the video embedded below. So, although distance values collected were accurate, since the robot still rotated on-axis, their corresponding angles were occasionally shifted. This impacted my mapping results, as it was difficult to transform my data if some of the angles were incorrect.  
 
-I do not think my robot would have much of an issue mapping a square, empty room. Even if I encountered the over-rotation issue detailed above, the distance values recorded would all be consistent, so slightly shifted yaw values should not greatly impact the mapping process. 
+<p align="center">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/SkQ8OWAjogU?si=Ezbzg0vcTccOxd69" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</p>
+<br>
+
+Overall, though, I do not think my robot would have much of an issue mapping a square, empty room. Even if I encountered the over-rotation issue detailed above, the distance values recorded would all be consistent, so slightly shifted yaw values should not greatly impact the mapping process. 
 
 
 ## Read out Distances 
@@ -224,7 +232,7 @@ plt.title("Line-Based Map")
 
 ### Discussion
 
-As you can see in the plot above, I drew the walls in over the data points, including the cluster in the middle right portion which results from detecting the obstruction in the middle of the map. Although I was still able to piece together the correct shape of the environment using my map, it is quite noisy. This is likely a result of the gyroscope value drift, which I touched on in depth above (second to last paragraph of control section). Shifted yaw values likely led to a poor translation into the room's reference frame which in turn resulted in noisy data. 
+As you can see in the plot above, I drew the walls in over the data points, including the cluster in the middle right portion which results from detecting the obstruction in the middle of the map. Although I was still able to piece together the correct shape of the environment using my map, it is quite noisy. This is likely a result of the gyroscope value drift, which I touched on in depth above (second to last paragraph of control section and corresponding video). Shifted yaw values likely led to a poor translation into the room's reference frame which in turn resulted in noisy data. 
 
 If I had more time, I would have done additional test runs to gather more data. However, I was not able to fix my robot until lab section today, and only had limited time afterwards to test. I also had to be mindful of the other students who were trying to collect data at the same time as me. Ideally, I would have been able to do at least one test at the origin, but because there were so many students trying to test I decided to stick to the corners. 
 
