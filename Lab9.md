@@ -237,3 +237,6 @@ As you can see in the plot above, I drew the walls in over the data points, incl
 If I had more time, I would have done additional test runs to gather more data. However, I was not able to fix my robot until lab section today, and only had limited time afterwards to test. I also had to be mindful of the other students who were trying to collect data at the same time as me. Ideally, I would have been able to do at least one test at the origin, but because there were so many students trying to test I decided to stick to the corners. 
 
 In the future, I would switch from using the gyroscope yaw values to the IMU's onboard DMP. Using the DMP instead of the gyroscope may help to reduce error between the yaw measurement and the robot's actual position in the environment. 
+
+### Fun Fact
+Also, for anyone who was curious - Espresso is now alive and well! Broken wheel can't stop her :)
