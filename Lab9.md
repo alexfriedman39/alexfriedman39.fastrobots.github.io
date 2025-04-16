@@ -5,8 +5,7 @@
 In order to complete Lab 9, I decided to use orientation control. As in previous labs, I activated my mapping code through a bluetooth command that set the flag, RECORD_MAP, to true. I implemented orientation control using the IMU's gyroscope. As seen in the code included below, the robot turned in increments of 10 degrees, effectively recording a total of 36 distance measurements. Yaw angle was measured continuously in order to accurately track the robot's movement. The desired PWM value was calculated based off yaw, using the same orientation PID function from Lab 6. If the resulting PWM value was positive, the robot was directed to turn right. Otherwise, the robot would turn left. To prevent the robot from unnecessary oscillation, I also directed it to stop moving if the yaw value obtained using the gyroscope was within 2 degrees of the target angle. Once the robot had stabilized at the correct angle, a distance measurement was recorded and the desired angle was updated. 
 
 <div style="height:200px; overflow:auto;">
-
-```cpp
+<pre><code class="language-cpp">
 if(RECORD_MAP)
        {
         icm_20948_DMP_data_t data;
@@ -118,3 +117,9 @@ if(RECORD_MAP)
         }
         }
        }
+</code></pre>
+</div>
+
+
+
+
