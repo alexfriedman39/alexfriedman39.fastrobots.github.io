@@ -12,7 +12,10 @@ As the robot moves, these cells are updated with the probability, calculated usi
 
 In order for the robot to accurately calculate cell probabilities, the following Bayes filter algorithm needed implementation: 
 
-*** ADD IN BAYES FILTER SCREENSHOT ***
+<p align="center">
+<img width="500" src="photos/Bayes_alg.png"> 
+</p>
+<br>
 
 Implementation was done in python by completing the helper functions outlined in the lab 10 notebook. 
 
