@@ -16,7 +16,7 @@ In order for the robot to accurately calculate cell probabilities, the following
 
 Implementation was done in python by completing the helper functions outlined in the lab 10 notebook. 
 
-### compute_control 
+### compute_control()
 
 This function takes inputs of the previous and current robot positions (x, y, θ). From these, it calculates the initial rotation, translation, and final rotation in order to model the robot's movement.
 
@@ -46,3 +46,80 @@ def compute_control(cur_pose, prev_pose):
     return delta_rot_1, delta_trans, delta_rot_2
 </code></pre>
 </div>
+
+### odom_motion_model()
+
+First, this function obtains odometry values by utilizing compute_control(). Then, it calculates their individual probabilities and returns the overall probability that the robot is at this current state given a previous state. The individual probabilities are calculated using a Gaussian distribution centered on the control input with the given standard deviations. 
+
+<div style="height:400px; overflow:auto;">
+<pre><code class="language-python"
+def odom_motion_model(cur_pose, prev_pose, u):
+    """ Odometry Motion Model
+
+    Args:
+        cur_pose  ([Pose]): Current Pose
+        prev_pose ([Pose]): Previous Pose
+        (rot1, trans, rot2) (float, float, float): A tuple with control data in the format 
+                                                   format (rot1, trans, rot2) with units (degrees, meters, degrees)
+
+
+    Returns:
+        prob [float]: Probability p(x'|x, u)
+    """
+    
+    delta_rot_1, delta_trans, delta_rot_2 = compute_control(cur_pose, prev_pose)
+
+    prob_rot_1 = loc.gaussian(delta_rot_1, u[0], loc.odom_rot_sigma)
+    prob_trans = loc.gaussian(delta_trans, u[1], loc.odom_trans_sigma)
+    prob_rot_2 = loc.gaussian(delta_rot_2, u[2], loc.odom_rot_sigma)
+
+    prob = prob_rot_1 * prob_trans * prob_rot_2
+
+    return prob
+</code></pre>
+</div>
+
+### prediction_step()
+
+This purpose of this function is to calculate the belief probabilities. Essentially, it does this by obtaining the odometry values, looping over all the cells, and implementing the equation in line 3 of the Bayes filter algorithm shown above. Once all beliefs have been calculated, they are normalized so that they sum to 1. 
+
+<div style="height:400px; overflow:auto;">
+<pre><code class="language-python"
+def prediction_step(cur_odom, prev_odom):
+    """ Prediction step of the Bayes Filter.
+    Update the probabilities in loc.bel_bar based on loc.bel from the previous time step and the odometry motion model.
+
+    Args:
+        cur_odom  ([Pose]): Current Pose
+        prev_odom ([Pose]): Previous Pose
+    """
+    u = compute_control(cur_odom, prev_odom)
+
+    loc.bel_bar = np.zeros((mapper.MAX_CELLS_X, mapper.MAX_CELLS_Y, mapper.MAX_CELLS_A))
+
+    for x_prev in range(mapper.MAX_CELLS_X):
+        for y_prev in range(mapper.MAX_CELLS_Y):
+            for theta_prev in range(mapper.MAX_CELLS_A):
+                if (loc.bel[x_prev, y_prev, theta_prev] < 0.0001): 
+                    continue
+
+                for x_cur in range(mapper.MAX_CELLS_X):
+                    for y_cur in range(mapper.MAX_CELLS_Y):
+                        for theta_cur in range(mapper.MAX_CELLS_A):
+                            p = odom_motion_model(mapper.from_map(x_cur, y_cur, theta_cur), mapper.from_map(x_prev, y_prev, theta_prev), u)
+                            loc.bel_bar[x_cur, y_cur, theta_cur] += p * loc.bel[x_prev, y_prev, theta_prev]
+
+    loc.bel_bar /= np.sum(loc.bel_bar)
+</code></pre>
+</div>
+
+### sensor_model()
+
+
+<div style="height:400px; overflow:auto;">
+<pre><code class="language-python"
+
+</code></pre>
+</div>
+
+### Acknowledgements 
