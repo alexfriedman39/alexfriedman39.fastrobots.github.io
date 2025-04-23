@@ -141,7 +141,7 @@ def sensor_model(obs):
 </code></pre>
 </div>
 
-### update_step
+### update_step()
 
 This is the last helper function, and it is used to update our current belief. Essentially, it implements line 4 of the Bayes filter algorithm by looping through each cell, retrieving observations, calculating their probabilities, and updating the belief. Once all beliefs have been calculated, they are once again normalized so they sum to 1.
 
