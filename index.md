@@ -17,3 +17,4 @@ Below you will find an updated account of the work I have done so far this semes
 - [Lab 7: Kalman Filter](/Lab7.md)
 - [Lab 8: Stunts](/Lab8.md)
 - [Lab 9: Mapping](/Lab9.md)
+- [Lab 10: Grid Localization using Bayes Filter](/Lab10.md)
