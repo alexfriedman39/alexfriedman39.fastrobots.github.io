@@ -81,7 +81,7 @@ def odom_motion_model(cur_pose, prev_pose, u):
 
 ### prediction_step()
 
-This purpose of this function is to calculate the belief probabilities. Essentially, it does this by obtaining the odometry values, looping over all the cells, and implementing the equation in line 3 of the Bayes filter algorithm shown above. Once all beliefs have been calculated, they are normalized so that they sum to 1. 
+This purpose of this function is to calculate the belief probabilities. Essentially, it does this by obtaining the odometry values, looping over all the cells, and implementing the equation in line 3 of the Bayes filter algorithm shown above. To decrease run time, probabilities smaller than 0.0001 are ignored because they do not contribute significantly to the overall summed belief. Once all beliefs have been calculated, they are normalized so that they sum to 1. 
 
 <div style="height:400px; overflow:auto;">
 <pre><code class="language-python"
@@ -115,11 +115,74 @@ def prediction_step(cur_odom, prev_odom):
 
 ### sensor_model()
 
+Based off the input of observations, this function calculates the probability for each sensor reading given the current state. Probability is calculated as a Gaussian distribution using the given standard deviations. 
 
 <div style="height:400px; overflow:auto;">
 <pre><code class="language-python"
+def sensor_model(obs):
+    """ This is the equivalent of p(z|x).
 
+
+    Args:
+        obs ([ndarray]): A 1D array consisting of the true observations for a specific robot pose in the map 
+
+    Returns:
+        [ndarray]: Returns a 1D array of size 18 (=loc.OBS_PER_CELL) with the likelihoods of each individual sensor measurement
+    """
+    prob_array = []
+    for i in range(mapper.OBS_PER_CELL):
+        prob = loc.gaussian(obs[i], loc.obs_range_data[i], loc.sensor_sigma)
+        prob_array.append(prob)
+
+    return prob_array
 </code></pre>
 </div>
 
+### update_step
+
+This is the last helper function, and it is used to update our current belief. Essentially, it implements line 4 of the Bayes filter algorithm by looping through each cell, retrieving observations, calculating their probabilities, and updating the belief. Once all beliefs have been calculated, they are once again normalized so they sum to 1.
+
+<div style="height:400px; overflow:auto;">
+<pre><code class="language-python"
+def update_step():
+    """ Update step of the Bayes Filter.
+    Update the probabilities in loc.bel based on loc.bel_bar and the sensor model.
+    """
+    for x_cur in range(mapper.MAX_CELLS_X):
+        for y_cur in range(mapper.MAX_CELLS_Y):
+            for theta_cur in range(mapper.MAX_CELLS_A):
+                p = sensor_model(mapper.get_views(x_cur, y_cur, theta_cur))
+                loc.bel[x_cur, y_cur, theta_cur] = np.prod(p) * loc.bel_bar[x_cur, y_cur, theta_cur]
+
+    loc.bel /= np.sum(loc.bel)
+</code></pre>
+</div>
+
+## Simulation 
+
+### Without Bayes Filter 
+
+First, I tested the simulation without Bayes filter. The robot's actual position, ground truth, is plotted in green while the odometry model is plotted in red. The odometry model quickly spirals away from ground truth, initially even moving opposite from the robot. As time goes on, it is able to more accurately follow the robots movements, but by then it is too far away to recover. This demonstrates that the odometry model is not great, since it gets off track easily and even moves through obstructions that the robot would not be able to pass through.
+
+<p align="center">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/hMIK-WirBL0?si=LwFPidiEPfxSHMSm" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</p>
+<br>
+
+### With Bayes Filter 
+
+Then, I performed two tests that implemented Bayes filter in the simulation. Both runs are shown in the embedded videos below. In both cases, it is clear that the probabilistic belief calculated using Bayes, plotted in blue, performs much better than the odometry model, plotted in red. It tracks very close to ground truth, plotted in green, especially near the walls. It appears that because the robot is able to record more measurements when near obstacles probability calculations improve. Overall, the probabilistic belief tracks with the robot very well, and I did not see it deviate significantly in any run. 
+
+<p align="center">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/rbNj0ggS3gU?si=EQncHkGLd01bV1YM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</p>
+<br>
+
+<p align="center">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/5kEn7e_lVv8?si=Ig_vvkQKQv4OH06J" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</p>
+<br>
+
 ### Acknowledgements 
+
+I referenced Stephan Wagner's lab report from last year. In addition, I referenced Lulu's lab report to see more examples of successful simulation runs. 
