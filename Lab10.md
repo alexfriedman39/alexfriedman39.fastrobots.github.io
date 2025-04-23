@@ -21,7 +21,7 @@ Implementation was done in python by completing the helper functions outlined in
 This function takes inputs of the previous and current robot positions (x, y, θ). From these, it calculates the initial rotation, translation, and final rotation in order to model the robot's movement.
 
 <div style="height:400px; overflow:auto;">
-<pre><code class="language-python"
+<pre><code class="language-python">
 def compute_control(cur_pose, prev_pose):
     """ Given the current and previous odometry poses, this function extracts
     the control information based on the odometry motion model.
@@ -52,7 +52,7 @@ def compute_control(cur_pose, prev_pose):
 First, this function obtains odometry values by utilizing compute_control(). Then, it calculates their individual probabilities and returns the overall probability that the robot is at this current state given a previous state. The individual probabilities are calculated using a Gaussian distribution centered on the control input with the given standard deviations. 
 
 <div style="height:400px; overflow:auto;">
-<pre><code class="language-python"
+<pre><code class="language-python">
 def odom_motion_model(cur_pose, prev_pose, u):
     """ Odometry Motion Model
 
@@ -84,7 +84,7 @@ def odom_motion_model(cur_pose, prev_pose, u):
 This purpose of this function is to calculate the belief probabilities. Essentially, it does this by obtaining the odometry values, looping over all the cells, and implementing the equation in line 3 of the Bayes filter algorithm shown above. To decrease run time, probabilities smaller than 0.0001 are ignored because they do not contribute significantly to the overall summed belief. Once all beliefs have been calculated, they are normalized so that they sum to 1. 
 
 <div style="height:400px; overflow:auto;">
-<pre><code class="language-python"
+<pre><code class="language-python">
 def prediction_step(cur_odom, prev_odom):
     """ Prediction step of the Bayes Filter.
     Update the probabilities in loc.bel_bar based on loc.bel from the previous time step and the odometry motion model.
@@ -118,7 +118,7 @@ def prediction_step(cur_odom, prev_odom):
 Based off the input of observations, this function calculates the probability for each sensor reading given the current state. Probability is calculated as a Gaussian distribution using the given standard deviations. 
 
 <div style="height:400px; overflow:auto;">
-<pre><code class="language-python"
+<pre><code class="language-python">
 def sensor_model(obs):
     """ This is the equivalent of p(z|x).
 
@@ -143,7 +143,7 @@ def sensor_model(obs):
 This is the last helper function, and it is used to update our current belief. Essentially, it implements line 4 of the Bayes filter algorithm by looping through each cell, retrieving observations, calculating their probabilities, and updating the belief. Once all beliefs have been calculated, they are once again normalized so they sum to 1.
 
 <div style="height:400px; overflow:auto;">
-<pre><code class="language-python"
+<pre><code class="language-python">
 def update_step():
     """ Update step of the Bayes Filter.
     Update the probabilities in loc.bel based on loc.bel_bar and the sensor model.
