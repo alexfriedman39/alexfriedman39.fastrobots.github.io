@@ -172,7 +172,7 @@ After verifying my results, I transformed my data from the polar coordinates rec
 After determining what equation to use, I applied it to my data using the Jupyter code shown below. I have also attached the resulting plot below the code. 
 
 <div style="height:400px; overflow:auto;">
-<pre><code class="language-python"
+<pre><code class="language-python">
 r_pos1 = dist2[:36]
 theta_pos1 = yaw2[:36]
 y1 = []
@@ -213,7 +213,7 @@ Although this map appears a bit noisy, there is still an evident pattern. This p
 <br>
 
 <div style="height:200px; overflow:auto;">
-<pre><code class="language-python"
+<pre><code class="language-python">
 plt.scatter(x1,y1, label = "(-3,-2)")
 plt.scatter(x2,y2, label = "(5, 3)")
 plt.scatter(x3, y3, label = "(5, -3)")
