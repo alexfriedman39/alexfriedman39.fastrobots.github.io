@@ -10,7 +10,7 @@ The Localization class was therefore verified since the probabilistic belief, ca
 
 ## Implementating Localization on the Robot
 
-Once I determined that Localization functioned correctly, I implemented perform_observation_loop() in the RealRobot class found in the lab11_real.ipynb notebook. This function was implemented using my START_MAP and SEND_MAP functions from Lab 9. START_MAP causes the robot to rotate 360 degrees in place while collecting distance data from the TOF sensor at specified increments. In order to perform the localization, I had to change the yaw angle increment from 10 to 20 degrees. This decreased the number of data points collected per run from 36 to 18. After the data is collected, SEND_MAP is used to send the time, distance, and yaw data from the robot so it can be processed by the notification handler and analyzed. 
+Once I determined that Localization functioned correctly, I implemented perform_observation_loop() in the RealRobot class found in the lab11_real.ipynb notebook. This function was implemented using my START_MAP and SEND_MAP functions from Lab 9. START_MAP causes the robot to rotate 360 degrees in place while collecting distance data from the TOF sensor at specified increments. In order to perform the localization, I had to change the yaw angle increment from 10 to 20 degrees. This decreased the number of data points collected per run from 36 to 18. After the data is collected, SEND_MAP is used to send the time, distance, and yaw data from the robot so it can be processed by the notification handler and analyzed. For reference, the modified Lab 9 code has also been attached at the end of this lab report. 
 
 *** ADD IN CODE ***
 
@@ -57,9 +57,14 @@ Although I was not able to get a perfect localization at this point, the beliefs
 
 ## Discussion 
 
+After testing at all four marked poses, it is evident that the robot is able to localize better in poses 1 and 2. It has the hardest time localizing in pose 3. 1 and 2 are likely easier to determine because they both have walls on two sides, and mostly open space on the other two sides. The open space is not as present on the right side of the map, which helps to narrow it down. In addition, the walls are at 180 and 270 degrees for location 1 but 90 and 180 degrees for location 2. This difference allows them to be easily distinguished from one another.
 
+As mentioned, there is less open space on the right side of the lab. This makes it more likely that the robot will measure some sort of wall at the majority of its intervals, which could correspond to a variety points all along the right wall. For example, at marked pose 4 the robot detected obstacles at 0, 90, and 270 degrees. However, this would have been the case at most points along the right wall due to the presence of the square cutout in the middle of the map. This made it harder to accurately determine the robot's location when it was in this pose. 
 
+Although marked pose 3 was not predicted exactly, the beliefs obtained were very close. As mentioned, they were consistently a unit lower in the y-coordinate. This likely occurred because the TOF sensor was at the front of the robot, and was therefore closer to the wall of the square cutout than expected. This emphasizes the need for a translation or transformation to account for the location of the TOF sensor, since it is not placed at the very center of the robot. 
 
+## Reference Code
 
+I have attached the modified Lab 9 code below. When START_MAP is called, the RECORD_MAP flag is turn on, which allows the robot to execute its 360 degree turn and data collection. 
 
 *** ADD CODE AT END FOR REFERENCE?? ***
