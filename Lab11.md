@@ -79,8 +79,10 @@ def notif_hand(uuid, b_to_extract):
 
 In the video below, the modified START_MAP command is executed on my robot. It completes a full 360 degree turn, stopping at approximately 20 degree intervals to record a total of 18 distance measurements. 
 
-*** VIDEO OF ROBOT TURNING ***
-
+<p align="center">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/FXrP-YpP6zI?si=r9Uc4wecv_zWGNDd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</p>
+<br>
 
 ## Results
 
