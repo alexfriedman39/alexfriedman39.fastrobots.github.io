@@ -9,7 +9,7 @@ Before testing on my robot, I ran localization in simulation using the lab11_sim
 </p>
 <br>
 
-The Localization class was therefore verified since the probabilistic belief, calculated using Bayes, behaved accurately with respect to ground truth.
+This result verified the Localization class since the probabilistic belief, calculated using Bayes, behaved accurately with respect to ground truth.
 
 ## Implementating Localization on the Robot
 
