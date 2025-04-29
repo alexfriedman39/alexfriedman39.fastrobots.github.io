@@ -15,11 +15,67 @@ The Localization class was therefore verified since the probabilistic belief, ca
 
 Once I determined that Localization functioned correctly, I implemented perform_observation_loop() in the RealRobot class found in the lab11_real.ipynb notebook. This function was implemented using my START_MAP and SEND_MAP functions from Lab 9. START_MAP causes the robot to rotate 360 degrees in place while collecting distance data from the TOF sensor at specified increments. In order to perform the localization, I had to change the yaw angle increment from 10 to 20 degrees. This decreased the number of data points collected per run from 36 to 18. After the data is collected, SEND_MAP is used to send the time, distance, and yaw data from the robot so it can be processed by the notification handler and analyzed. For reference, the modified Lab 9 code has also been attached at the end of this lab report. 
 
-*** ADD IN CODE ***
+<div style="height:400px; overflow:auto;">
+<pre><code class="language-python">
+   def perform_observation_loop(self, rot_vel=120):
+        """Perform the observation loop behavior on the real robot, where the robot does  
+        a 360 degree turn in place while collecting equidistant (in the angular space) sensor
+        readings, with the first sensor reading taken at the robot's current heading. 
+        The number of sensor readings depends on "observations_count"(=18) defined in world.yaml.
+        
+        Keyword arguments:
+            rot_vel -- (Optional) Angular Velocity for loop (degrees/second)
+                        Do not remove this parameter from the function definition, even if you don't use it.
+        Returns:
+            sensor_ranges   -- A column numpy array of the range values (meters)
+            sensor_bearings -- A column numpy array of the bearings at which the sensor readings were taken (degrees)
+                               The bearing values are not used in the Localization module, so you may return a empty numpy array
+        """
+        global time, dist, yaw
+        time = []
+        dist = []
+        yaw = []
+
+        ble.send_command(CMD.START_MAP, "")
+
+        LOG.info('Collecting data...')
+
+        import asyncio 
+        asyncio.run(asyncio.sleep(35))
+
+        LOG.info('Receiving data...')
+
+        self.ble.start_notify(ble.uuid['RX_STRING'], notif_hand)
+        self.ble.send_command(CMD.SEND_MAP, '')
+
+        asyncio.run(asyncio.sleep(5))
+
+        LOG.info('Finished')
+
+        ble.stop_notify(ble.uuid['RX_STRING'])
+
+        sensor_ranges = (np.array(dist)[np.newaxis].T)/1000
+        sensor_bearings = np.array(yaw)[np.newaxis].T
+
+
+        return sensor_ranges, sensor_bearings
+</code></pre>
+</div>
 
 Note that I used asyncio.sleep() to ensure the python code would not continue until the robot executed its commands. This ensured that all data was collected and sent back without blocking or being blocked by the execution of perform_observation_loop(). In addition, after the distance and yaw data were received, I made sure to convert the lists to a numpy column array so they could be properly utilized in the localization code. Before this conversion, each data point was converted into a float in the notification handler, which is shown below, so that calculations could be done properly.
 
-*** NOTIFICATION HANDLER ***
+<div style="height:400px; overflow:auto;">
+<pre><code class="language-python">
+def notif_hand(uuid, b_to_extract):
+    s_from_b = ble.bytearray_to_string(b_to_extract)
+    split_ar = s_from_b.split("|")
+    time.append(float(split_ar[0][6:]))
+    dist.append(float(split_ar[1][10:]))
+    yaw.append(float(split_ar[2][5:]))
+    if(len(time)>17):
+        print("collected")
+</code></pre>
+</div>
 
 In the video below, the modified START_MAP command is executed on my robot. It completes a full 360 degree turn, stopping at approximately 20 degree intervals to record a total of 18 distance measurements. 
 
@@ -85,4 +141,8 @@ Although marked pose 3 was not predicted exactly, the beliefs obtained were very
 
 I have attached the modified Lab 9 code below. When START_MAP is called, the RECORD_MAP flag is turn on, which allows the robot to execute its 360 degree turn and data collection. 
 
-*** ADD CODE AT END FOR REFERENCE?? ***
+<div style="height:650px; overflow:auto;">
+<pre><code class="language-cpp">
+
+</code></pre>
+</div>
