@@ -139,10 +139,112 @@ Although marked pose 3 was not predicted exactly, the beliefs obtained were very
 
 ## Reference Code
 
-I have attached the modified Lab 9 code below. When START_MAP is called, the RECORD_MAP flag is turn on, which allows the robot to execute its 360 degree turn and data collection. 
+I have attached the modified Lab 9 code below. When START_MAP is called, the RECORD_MAP flag is turned on, which allows the robot to execute its 360 degree turn and data collection. 
 
 <div style="height:650px; overflow:auto;">
 <pre><code class="language-cpp">
+      if(RECORD_MAP)
+      {
+       int dist;
+       float yaw_tot;
+       float cur_time;
+       float dt_map;
+       int pwm;
+       float yaw_prev;
+       float yaw_g;
+       //Initial distance measurement (robot doesn't need to start moving)
+       if(FIRST_ANGLE)
+       {
+        delay(2000);
+          if (distanceSensor_1.checkForDataReady()) {
+            meas_dist = distanceSensor_1.getDistance();
+            yaw_tot = 0;
+           
+            time_map[map_meas] = millis();
+            dist_map[map_meas]=meas_dist;
+            yaw_map[map_meas] = yaw_tot;
 
+            map_meas++;
+            distanceSensor_1.clearInterrupt();
+            distanceSensor_1.stopRanging();
+            distanceSensor_1.startRanging();
+            FIRST_ANGLE = false;
+            des_angle = 20;
+          }
+       }
+       else{
+         if(map_meas < 18)
+         {
+           float pid_t0 = millis();
+           while(millis()-pid_t0 < 1500 && RECORD_MAP)
+           {
+            cur_time = millis();
+            dt_map = (cur_time-prev_time_ori)/1000;
+
+            prev_time_ori = cur_time;
+
+            if(myICM.dataReady())
+            {
+             myICM.getAGMT();
+             double yaw_g = myICM.gyrZ();
+
+             yaw_tot = yaw_tot + yaw_g*dt_map;
+
+             pwm = calc_speed_ori(yaw_tot, des_angle, dt_map);
+            
+             if(abs(yaw_tot-des_angle) < 2 || yaw_tot > des_angle)
+             {
+               analogWrite(1, 0);
+               analogWrite(2, 0);
+               analogWrite(0, 0);
+               analogWrite(5,0);
+               delay(50);
+             }
+             else if(pwm>0)
+             {
+              if(pwm > 130)
+              {
+               pwm = 130;
+              }
+             }
+             else
+             {
+               pwm=abs(pwm);
+               if(pwm > 115)
+               {
+                 pwm = 115;
+               }
+               //Serial.print("PWM applied:");
+               //Serial.println(pwm);
+               turn_left(pwm);
+             }
+               }
+            }
+           stopMoving();
+           delay(5);
+
+          if (distanceSensor_1.checkForDataReady()) {
+            meas_dist = distanceSensor_1.getDistance();
+            distanceSensor_1.clearInterrupt();
+            distanceSensor_1.stopRanging();
+            distanceSensor_1.startRanging();
+                        
+            time_map[map_meas] = millis();
+            dist_map[map_meas]=meas_dist;
+            yaw_map[map_meas] = yaw_tot;
+           
+            Serial.println(des_angle);
+            des_angle = des_angle+20;
+            map_meas++;
+            prev_err_ori = 0;
+            int_error_ori = 0;
+          }
+       }
+        else
+        {
+         RECORD_MAP = false;
+       }
+       }
+      }
 </code></pre>
 </div>
