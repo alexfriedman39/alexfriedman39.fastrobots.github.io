@@ -45,6 +45,20 @@ However, I saw a great improvement in localization on my second trial. This time
 
 ### Marked Pose 3: (5 ft, -3 ft, 0 deg) or (1.524 m, -0.9144 m, 0 deg)
 
+This marked pose proved the most difficult for the robot to predict using localization. Even after attempting a few times, I was not able to get a resulting belief in the bottom right quadrant, let alone a perfect localization. My two closest beliefs were (1.524, 0.000, -130.000) with probability 0.9994 and (1.829, 0.305, 70.000) with probability 0.9999. The maps with these beliefs plotted are shown below, respectively. Although the belief locations were not entirely accurate, it is worth noting that the results were repeatable across trials, since the belief values were both between the obstruction and the right wall.
+
+*** loc_3_5 and loc_3_4 ***
+
+### Marked Pose 4: (5 ft, 3 ft, 0 deg) or (1.524 m, 0.9144 m, 0 deg)
+
+Although I was not able to get a perfect localization at this point, the beliefs I obtained were relatively accurate and consisent across trials. The belief values obtained were (1.219, 0.610, 10.000) and (1.524, 0.610, -10.000), both with probaility 0.9999999. The resulting maps for these two trials are shown below, respectively. The second trial was able to accurately predict the x coordinate of the robot. However, in both cases, the y coordinate was 1 unit below the true location. This may be a result of the fact that the TOF sensor is located at the front of the robot, which could result in smaller distance values than expected when the robot is facing the square obstruction. 
+
+*** loc_4_1 and loc_4_2 ***
+
+## Discussion 
+
+
+
 
 
 
