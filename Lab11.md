@@ -64,7 +64,7 @@ Once I determined that Localization functioned correctly, I implemented perform_
 
 Note that I used asyncio.sleep() to ensure the python code would not continue until the robot executed its commands. This ensured that all data was collected and sent back without blocking or being blocked by the execution of perform_observation_loop(). In addition, after the distance and yaw data were received, I made sure to convert the lists to a numpy column array so they could be properly utilized in the localization code. Before this conversion, each data point was converted into a float in the notification handler, which is shown below, so that calculations could be done properly.
 
-<div style="height:400px; overflow:auto;">
+<div style="height:300px; overflow:auto;">
 <pre><code class="language-python">
 def notif_hand(uuid, b_to_extract):
     s_from_b = ble.bytearray_to_string(b_to_extract)
@@ -74,6 +74,7 @@ def notif_hand(uuid, b_to_extract):
     yaw.append(float(split_ar[2][5:]))
     if(len(time)>17):
         print("collected")
+   
 </code></pre>
 </div>
 
