@@ -281,5 +281,8 @@ ble.send_command(CMD.MOVE_7, "")
 </code></pre>
 </div>
 
+The robot performed two trials of map navigation using open loop control relatively well, as shown in the videos below. However, there was some variation in execution from one waypoint to the next between trials, likely due to the difference in battery charge, among other factors. In trial 1, MOVE_1, MOVE_5, MOVE_6, and MOVE_8 were executed properly. Based off the results from trial 2, I adjusted the delays slightly for trial 2. This helped, as it led to better execution of MOVE_2, MOVE_4, and MOVE_7 (on its second attempt), in addition to the proper addition of 1, 5, 6, and 8 as in trial 1. 
 
+*** OPEN LOOP VIDEOS ***
 
+## Open Loop with Localization
