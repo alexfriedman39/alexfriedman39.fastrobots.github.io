@@ -434,7 +434,7 @@ Another option that might have worked better than my open loop control with loca
 
 
 <p align="center">
-<img width="500" src="photos/Lab12/PID.jpg"> 
+<img width="500" src="photos/Lab12/PID.png"> 
 </p>
 <br>
 
