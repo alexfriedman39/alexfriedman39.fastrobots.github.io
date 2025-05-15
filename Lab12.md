@@ -2,9 +2,12 @@
 
 ## Open Loop Control 
 
-To navigate through the map, I started with open loop control. I made 8 commands, MOVE_1 through MOVE_8, which each corresponded to a movement from one waypoint to the next. For example, MOVE_1 caused the robot to move from point 1 to 2, which required the robot to turn left 45 degrees and then move forward approximately 2.8 feet. 
+To navigate through the map, I started with open loop control. I made 8 commands, MOVE_1 through MOVE_8, which each corresponded to a movement from one waypoint to the next. For example, MOVE_1 caused the robot to move from point 1 to 2, which required the robot to turn left 45 degrees and then move forward approximately 2.8 feet. The map below shows the trajectory of the robot for each of the commands.  
 
-*** ADD IN DRAWN DIAGRAM HERE ?? INCLUDES NAMES OF MOVE_1 ETC?? ***
+<p align="center">
+<img width="500" src="photos/Lab12/OL_traject.png"> 
+</p>
+<br>
 
 The code for MOVE_1 through MOVE_8 can be seen below. 
 
@@ -412,7 +415,11 @@ The video embedded below shows my best attempt at utilizing this navigation meth
 </p>
 <br>
 
-*** CORRESPONDING MAP ***
+
+<p align="center">
+<img width="500" src="photos/Lab12/good_Map.png"> 
+</p>
+<br>
 
 In the video, you can see that I had to reposition the robot at each point This was because when writing the code I forgot to account for the fact that the robot needs to be at 0 degrees before starting the localization. So, after stepping from each waypoint to the next, I had to readjust the robot to face 0 degrees, then place it back to its original angle after localization was completed. I fixed this in my code after this trial, but due to the aformentioned Bluetooth difficulties, I was not able to get a more successful run than the one shown. 
 
@@ -425,7 +432,11 @@ Overall, although my open loop control did work, it took a lot of tuning, and va
 
 Another option that might have worked better than my open loop control with localization is PID control. This would have consisted of applying lab 5 (Linear PID) and 6 (Orientation PID) concepts in order to move throughout the environment. Using linear PID, the robot could move forward until it is a certain distance from a wall. In order to do this effectively, I would have changed the trajectory in order to more accurately detect walls. This ideal trajectory is shown in the image below. Orientation PID control could be used by detecting the original angle, and using the DMP to move in the desired direction from each point to the next. 
 
-*** TRAJECTORY DIAGRAM ***
+
+<p align="center">
+<img width="500" src="photos/Lab12/PID_traject.png"> 
+</p>
+<br>
 
 ### Bluetooth Issues
 
