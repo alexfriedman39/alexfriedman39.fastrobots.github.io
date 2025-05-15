@@ -5,7 +5,7 @@
 To navigate through the map, I started with open loop control. I made 8 commands, MOVE_1 through MOVE_8, which each corresponded to a movement from one waypoint to the next. For example, MOVE_1 caused the robot to move from point 1 to 2, which required the robot to turn left 45 degrees and then move forward approximately 2.8 feet. The map below shows the trajectory of the robot for each of the commands.  
 
 <p align="center">
-<img width="500" src="photos/Lab12/OL_traject.jpeg"> 
+<img width="500" src="photos/Lab12/OL.png"> 
 </p>
 <br>
 
@@ -434,7 +434,7 @@ Another option that might have worked better than my open loop control with loca
 
 
 <p align="center">
-<img width="500" src="photos/Lab12/PID_traject.jpg"> 
+<img width="500" src="photos/Lab12/PID.jpg"> 
 </p>
 <br>
 
