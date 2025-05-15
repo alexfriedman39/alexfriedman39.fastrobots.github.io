@@ -441,3 +441,9 @@ Another option that might have worked better than my open loop control with loca
 ### Bluetooth Issues
 
 As mentioned above, I had significant Bluetooth issues while trying to complete this lab. When attempting the flip during the ECE showcase, I managed to short circuit my Artemis. As a result, I had to resolder it to complete this lab. So, when I started having Bluetooth issues, I assumed it was because of the Artemis. I re-did some of my connections in order to try to fix the issue while in lab. However, after leaving lab I realized that the battery powering my Artemis was likely no longer holding charge. By the time I realized this, though, open hours were closed. So, I had to do all tests with my Artemis connected to my computer in an attempt to keep it powered. This worked for short periods of time, but as shown in the open loop with localization trial, the Artemis would still disconnect after some time with no explanation (aka it did not hit a wall or go further than the length of my cord). For further demonstration of the Bluetooth issues, I have a video showing how long it took for my Artemis to connect to my computer (approximately 25 seconds).
+
+<p align="center">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/O4pUxaCajq4?si=RWQ9uvzytQLCoxl0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</p>
+<br>
+
