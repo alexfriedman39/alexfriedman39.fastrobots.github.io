@@ -4,7 +4,7 @@
   
 Hi! My name is Alex Friedman, and I am a MEng student studying mechanical engineering. I am interested in biomechanics and robotics. At Cornell I am a member of SWE Outreach, and I play on the women's club hockey team. As well, I enjoy hiking, reading, and skiing. 
 
-Below you will find an updated account of the work I have done so far this semester in Fast Robots. So far we have completed up to lab 11!
+Below you will find an updated account of all the work I did this semester in Fast Robots!
 
 ## Labs
 
@@ -19,3 +19,4 @@ Below you will find an updated account of the work I have done so far this semes
 - [Lab 9: Mapping](/Lab9.md)
 - [Lab 10: Grid Localization using Bayes Filter](/Lab10.md)
 - [Lab 11: Localization on the Real Robot](/Lab11.md)
+- [Lab 12: Path Planning and Execution](/Lab12.md)
